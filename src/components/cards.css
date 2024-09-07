@@ -1,0 +1,6 @@
+/* import from root: /src/index.css */
+@import url("/src/index.css"); 
+
+h1 {
+  color: var(--red);
+}
