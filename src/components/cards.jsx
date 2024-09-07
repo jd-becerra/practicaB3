@@ -10,11 +10,12 @@ function CardFrontPage({topic, title, image}) {
           <div className='absolute inset-0 bg-black opacity-40'></div>
       </div>
         <div className='absolute z-10 bottom-20 left-10 right-10 grid grid-cols-2 gap-y-4'>
-          <h5 className='col-start-1 font-bold leading-relaxed text-center bg-red-600 text-white inline-block px-2'>
+          <h5 className='col-span-1 flex flex-col'>
+            <span className='font-bold leading-relaxed text-center text-xl bg-red-600 text-white px-2 py-1'>
             {topic}
+            </span>
           </h5>
-          <div> </div>
-          <h4 className='col-start-1 col-end-3 text-white text-left self-start text-3xl font-semibold leading-tight'>
+          <h4 className='col-span-2 text-white text-left self-start text-3xl font-semibold leading-tight'>
             {title}
           </h4>
         </div>
@@ -33,11 +34,13 @@ function CardType1({topic, title, image}) {
           <div className='absolute inset-0 bg-black opacity-50'></div>
         </div>
         <div className='absolute z-10 bottom-4 left-4 right-4 grid grid-cols-2 gap-y-4'>
-          <h5 className='col-start-1 font-bold leading-relaxed text-center text-sm bg-red-600 text-white inline-block px-2'>
-            {topic}
-          </h5>
+          <p className='col-span-1'>
+            <span className='bg-red-600 font-semibold text-white px-2 py-1'>
+              {topic}
+            </span>
+          </p>
           <div> </div>
-          <h4 className='col-start-1 col-end-3 text-white text-left self-start text-base font-semibold leading-tight'>
+          <h4 className='col-span-2 text-white text-left self-start text-base font-semibold leading-tight'>
             {title}
           </h4>
         </div>

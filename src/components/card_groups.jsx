@@ -7,10 +7,10 @@ function FrontPage() {
       <div className='grid grid-cols-3 lg:grid-rows-3 gap-4'>
         <div className='col-span-3 grid grid-cols-4 gap-8'>
           <CardFrontPage {...front_page_card_data} />
-          <div className='col-span-1 container h-[590px] w-full'>
+          <div className='col-span-1 container '>
             <img 
-              className='object-fit w-full h-full'
-              src='../img/banners/banner_vertical.jpg' 
+              className='object-fit'
+              src='../img/banners/anuncio_vertical.png' 
               alt='banner' 
             />
           </div>
