@@ -86,3 +86,16 @@ button:focus-visible {
     background-color: var(--gray-200);
   }
 }
+
+@keyframes autoscrollX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.autoscrollX {
+  animation: autoscrollX 20s linear infinite;
+}

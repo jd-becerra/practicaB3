@@ -10,6 +10,10 @@ export default {
       colors: {
         black: '#121212',
       },
+      // custom animations
+      animation: {
+        'autoscroll-x': 'autoscrollX 20s linear infinite',
+      },
     },
 
     // Color overrides
