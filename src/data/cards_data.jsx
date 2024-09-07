@@ -1,5 +1,5 @@
 const front_page_card_data = {
-  topic: "FÚTBOL",
+  topic: "SELECCIÓN NACIONAL DE MÉXICO",
   title: "México vs Colombia Femenil Sub-20: dónde ver en vivo, horario y transmisión Copa Mundial de Fútbol Femenina Sub-20",
   image: "/img/cards/card_front_page.jpg",
 }
