@@ -32,13 +32,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: --blue;
-  text-decoration: inherit;
-}
-a:hover {
-  color: var(--blue-dark);
+html, body, #app, #app>div {
+  width: 100%;
 }
 
 body {
