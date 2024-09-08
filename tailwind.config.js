@@ -12,7 +12,7 @@ export default {
       },
       // custom animations
       animation: {
-        'autoscroll-x': 'autoscrollX 20s linear infinite',
+        'autoscroll-x': 'autoscrollX 50s linear infinite',
       },
     },
 
@@ -35,6 +35,10 @@ export default {
       blue: {
         300: '#60A9FF',
         600: '#0F57AC',
+        800: '#0000CC',
+      },
+      cyan: {
+        300: '##00CCCC',
       },
     }
   },

@@ -91,11 +91,14 @@ button:focus-visible {
   0% {
     transform: translateX(0);
   }
+  2% {
+    transform: translateX(0%);
+  }
   100% {
     transform: translateX(-100%);
   }
 }
 
 .autoscrollX {
-  animation: autoscrollX 20s linear infinite;
+  animation: autoscrollX 50s linear infinite;
 }
