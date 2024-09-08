@@ -1,5 +1,5 @@
-import { front_page_card_data, c1_data, c2_data } from '../data/cards_data.jsx'
-import { CardFrontPage, CardType1, CardType2 } from './cards.jsx'
+import { front_page_card_data, c_fp_data, c_1_data, c_2_data } from '../data/cards_data.jsx'
+import { CardFrontPage, CardFrontPageSmall, CardType1, CardType2 } from './cards.jsx'
 
 function FrontPage() {
   return (
@@ -22,8 +22,8 @@ function FrontPage() {
             />
           </div>
         </div>
-        {c1_data.map((card_data, index) => (
-          <CardType1 key={index} {...card_data} />
+        {c_fp_data.map((card_data, index) => (
+          <CardFrontPageSmall key={index} {...card_data} />
         ))}
       </div>
   )
@@ -32,11 +32,28 @@ function FrontPage() {
 function CardGroup1() {
   return (
     <div className='grid grid-cols-3 grid-rows-2 gap-4'>
-      {c2_data.map((card_data, index) => (
-        <CardType2 key={index} {...card_data} />
+      {c_1_data.map((card_data, index) => (
+        <CardType1 key={index} {...card_data} />
       ))}
     </div>
   )
 }
 
-export { FrontPage, CardGroup1 }
+function CardGroup2() {
+  // Las cartas tipo 2 son iguales a las tipo 1, pero son cinco en vez de seis y una tiene una imagen mas grande
+
+  const large_card = c_2_data[0]
+  const small_cards = c_2_data.slice(1) // Se necesitan 4 cartas pequeñas
+
+  return (
+    <div className='grid grid-cols-3 grid-rows-2 gap-4'>
+      <CardType1 {...small_cards[0]} />
+      <CardType1 {...small_cards[1]} />
+      <CardType2 {...large_card} />
+      <CardType1 {...small_cards[2]} />
+      <CardType1 {...small_cards[3]} />
+    </div>
+  )
+}
+
+export { FrontPage, CardGroup1, CardGroup2 }

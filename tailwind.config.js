@@ -9,6 +9,7 @@ export default {
       // custom colors
       colors: {
         black: '#121212',
+        cyan: '#00CCCC',
       },
       // custom animations
       animation: {
@@ -36,9 +37,6 @@ export default {
         300: '#60A9FF',
         600: '#0F57AC',
         800: '#0000CC',
-      },
-      cyan: {
-        300: '##00CCCC',
       },
     }
   },
