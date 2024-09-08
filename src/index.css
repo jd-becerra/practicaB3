@@ -24,7 +24,7 @@
 
   color-scheme: light dark;
   color: var(--black);
-  background-color: var(--white);
+  background-color: var(--gray-100);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -33,7 +33,8 @@
 }
 
 html, body, #app, #app>div {
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 body {
@@ -42,31 +43,6 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  color: var(--white);
-  background-color: var(--gray-300);
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: var(--blue-dark);
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
