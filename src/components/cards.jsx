@@ -48,7 +48,7 @@ function CardFrontPageSmall({topic, title, image}) {
 function CardType1({topic, title, image, author, n_comments}) {
   return (
     <div 
-      className='bg-white col-span-1 row-span-1 shadow-lg shadow-gray-300 h-full w-full grid grid-rows-3 transition ease-in-out duration-300 group hover:scale-105 relative z-0 cursor-pointer'>
+      className='bg-white col-span-1 row-span-1 shadow-lg shadow-gray-300 h-full grid grid-rows-3 transition ease-in-out duration-300 group hover:scale-105 relative z-0 cursor-pointer flex-shrink'>
       <div className='row-span-2'>
         <img className='object-fill w-full h-full' src={image} alt={title} />
         <span 
@@ -84,7 +84,7 @@ function CardType1({topic, title, image, author, n_comments}) {
 function CardType2({topic, title, image, author, n_comments}) {
   return (
     <div 
-      className='bg-white shadow-lg shadow-gray-300 h-full w-full transition ease-in-out duration-300 group hover:scale-105 relative z-0 cursor-pointer lg:col-span-1 lg:row-span-2 md:col-span-2 md:row-span-1 sm:col-span-1'>
+      className='bg-white shadow-lg shadow-gray-300 h-full w-full transition ease-in-out duration-300 group hover:scale-105 relative z-0 cursor-pointer lg:col-span-1 lg:row-span-2 md:col-span-2 md:row-span-1 sm:col-span-1 sm:row-span-1'>
       <div className='flex flex-col h-full'>
         <div className='relative flex-grow'>
           <img className='object-cover w-full h-full' src={image} alt={title} />
@@ -120,13 +120,13 @@ function CardType2({topic, title, image, author, n_comments}) {
 // Cartas para el separador 3
 function CardSeparator({topic, title, image, n_comments}) {
   return (
-    <div className='col-span-1 drop-shadow-xl flex group cursor-pointer'>
+    <div className='drop-shadow-xl group cursor-pointer lg:w-96 md:w-72'>
       <div className='relative z-0'>
         <img className='object-fill w-full h-full' src={image} alt={title} />
-        <div className='absolute inset-0 bg-black transition ese-in-out duration-700 opacity-45 group-hover:opacity-0'></div>
+        <div className='absolute inset-0 bg-black transition ese-in-out duration-700 opacity-45 group-hover:opacity-10'></div>
         <div className='absolute z-10 bottom-14 left-4 gap-y-4'>
           <h4 
-            className='text-lg text-white text-left self-start text-base font-bold leading-tight group-hover:text-gray-100'>
+            className='text-white text-left self-start text-base font-bold leading-tight group-hover:text-gray-100'>
             {title}
           </h4>
         </div>

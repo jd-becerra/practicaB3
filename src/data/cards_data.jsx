@@ -151,24 +151,60 @@ const c_separator_data = [
     image: '/img/cards/card_separator_3.webp',
     n_comments: 100,
   },
-  //   {
-  //   topic: 'FÓRMULA 1',
-  //   title: 'Haas firma a piloto de Ferrari para sustituir a Magnussen en Azerbaiyán',
-  //   image: '/img/cards/card_t1_1.jpg',
-  //   n_comments: 12,
-  // },
-  // {
-  //   topic: 'FÓRMULA 1',
-  //   title: 'Salario de Adrian Newey con Aston Martin: Casi el triple del sueldo de Checo Pérez',
-  //   image: '/img/cards/card_t1_2.webp',
-  //   n_comments: 0,
-  // },
-  // {
-  //   topic: 'FÚTBOL FEMENIL',
-  //   title: 'México vs Colombia Femenil Sub-20: dónde ver en vivo, horario y transmisión Copa Mundial de Fútbol Femenina Sub-20',
-  //   image: '/img/cards/card_t1_3.jpg',
-  //   n_comments: 0,
-  // },
+  {
+    topic: 'FÓRMULA 1',
+    title: 'Haas firma a piloto de Ferrari para sustituir a Magnussen en Azerbaiyán',
+    image: '/img/cards/card_t1_2.webp',
+    n_comments: 12,
+  },
+  {
+    topic: 'FÓRMULA 1',
+    title: 'Salario de Adrian Newey con Aston Martin: Casi el triple del sueldo de Checo Pérez',
+    image: '/img/cards/card_t1_2.webp',
+    n_comments: 0,
+  },
+  {
+    topic: 'FÚTBOL FEMENIL',
+    title: 'México vs Colombia Femenil Sub-20: dónde ver en vivo, horario y transmisión Copa Mundial de Fútbol Femenina Sub-20',
+    image: '/img/cards/card_t1_3.jpg',
+    n_comments: 0,
+  },
+ {
+    topic: 'LIGA MX 2024',
+    title: 'Goles y Resumen América vs Atlético Nacional: Efraín Juárez debuta como DT en trepidante empate ante un Jardine que no levantas',
+    image: '/img/cards/card_separator_1.webp',
+    n_comments: 12,
+  },
+  {
+    topic: 'SELECCIÓN NACIONAL DE MÉXICO',
+    title: 'David Faitelson lanza crítica al Tri: "En este momento no hay calidad en la Selección Mexicana"',
+    image: '/img/cards/card_separator_2.webp',
+    n_comments: 0,
+  },
+  {
+    topic: 'FÚTBOL',
+    title: 'Resumen y goles Estados Unidos vs Canadá: la Hoja de Maple se queda el triunfo y avisa a México de cara al martes',
+    image: '/img/cards/card_separator_3.webp',
+    n_comments: 100,
+  },
+  {
+    topic: 'FÓRMULA 1',
+    title: 'Haas firma a piloto de Ferrari para sustituir a Magnussen en Azerbaiyán',
+    image: '/img/cards/card_t1_2.webp',
+    n_comments: 12,
+  },
+  {
+    topic: 'FÓRMULA 1',
+    title: 'Salario de Adrian Newey con Aston Martin: Casi el triple del sueldo de Checo Pérez',
+    image: '/img/cards/card_t1_2.webp',
+    n_comments: 0,
+  },
+  {
+    topic: 'FÚTBOL FEMENIL',
+    title: 'México vs Colombia Femenil Sub-20: dónde ver en vivo, horario y transmisión Copa Mundial de Fútbol Femenina Sub-20',
+    image: '/img/cards/card_t1_3.jpg',
+    n_comments: 0,
+  },
 ]
 
 

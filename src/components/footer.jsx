@@ -8,7 +8,7 @@ function Footer() {
   const [toggle_copyright, setToggleCopyRight] = useState(false)
 
   return (
-    <>
+      <div className="wrapper">
       { /* footer para resoluciones grandes y extragrande */ }
       <footer className="bleed-bg bleed-bg-white bg-white w-full lg:block md:block sm:hidden xs:hidden">
         <div className='xl:container xl:mx-auto'>
@@ -50,7 +50,7 @@ function Footer() {
       <footer>
         <div className="bg-white w-full lg:hidden md:hidden sm:block xs:block">
           <div className="xl:container xl:mx-auto">
-            <div className="px-4 py-4">
+            <div className="p-4">
               <h6 className="text-center font-bold text-gray-800 text-lg pb-4 mx-auto">
                 Otras webs de Unidad Editorial
               </h6>
@@ -63,20 +63,20 @@ function Footer() {
                     <h6 className="font-bold text-gray-800 mb-4">{link_group.title}</h6>
                   </button>
                   <ul 
-                    className={`text-gray-600 bg-white ${toggles[index][0] ? 'animation-collapse-down' : 'hidden'}`}>
+                    className={`text-gray-600 bg-white ${toggles[index][0] ? 'block animate-collapse-down' : 'hidden h-0'}`}>
                       {link_group.links.map((link, index) => (
                         <li key={index}><a className='cursor-pointer hover:text-red-600'>{link}</a></li>
                       ))}
                   </ul>
                 </div>
               ))}
-              <div className='text-gray-800 text-sm'>
+              <div className='text-gray-800 text-sm flex-shrink'>
                 <button 
                   onClick={() => setToggleCopyRight(prev => !prev)}
-                  className='text-center text-base font-bold py-8 bg-gray-100 border-b-2 border-gray-300 w-full'>
+                  className='text-center text-base font-bold py-8 bg-gray-100 w-full'>
                   {footer_copyright.header}
                 </button>
-                <div className={`'xl:inline-block lg:mt-2 md:mt-4 grid lg:grid-cols-2 md:grid-cols-2' ${toggle_copyright ? 'animation-collapse-down' : 'hidden'}`}>
+                <div className={`'xl:inline-block lg:mt-2 md:mt-4 grid lg:grid-cols-2 md:grid-cols-2' ${toggle_copyright ? 'animate-collapse-down' : 'hidden'}`}>
                   {footer_copyright.links.map((link, index) => (
                     <a key={index} className='text-left cursor-pointer hover:text-red-600 px-4 mt-2'>{link}</a>
                   ))
@@ -87,7 +87,7 @@ function Footer() {
           </div>
         </div>
       </footer>
-    </>
+      </div>
   );
 }
 

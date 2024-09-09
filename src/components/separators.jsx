@@ -103,14 +103,14 @@ function Separator2() {
 // Seccion scrolleable con cartas
 function Separator3() {
   return (
-    <div className='mx-auto border-y-4 border-y-gray-300 py-8 my-16 overflow-hidden relative inline-flex'> 
-      <div className='flex overflow-x-auto'>
-        <div className='grid grid-cols-3 gap-4 mx-auto'>
-          {c_separator_data.map((card_data, index) => (
-            <CardSeparator key={index} {...card_data} />
-          ))}
-        </div>
-      </div>
+    <div className='container border-y-4 border-y-gray-300 overflow-x-scroll relative py-4 my-16'>
+      <ul className='flex items-center whitespace-wrap gap-2 animate-autoscroll-x'>
+        {c_separator_data.map((card_data, index) => (
+          <li key={index} className='inline-fex'>
+            <CardSeparator {...card_data} />
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

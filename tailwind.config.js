@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+const defaultTheme = require('tailwindcss/defaultTheme')
+
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -14,8 +15,8 @@ export default {
       // custom animations
       animation: {
         'autoscroll-x': 'autoscrollX 17s linear infinite',
-        'collapse-down': 'collapseDown 10s linear',
-        'collapse-up' : 'collapseUp 10s linear',
+        'collapse-down': 'collapseDown 1s linear',
+        'collapse-up' : 'collapseUp 1s linear',
       },
     },
 
@@ -40,7 +41,14 @@ export default {
         600: '#0F57AC',
         800: '#0000CC',
       },
-    }
+    },
+
+
+    screens: {
+      'xs': '320px',
+      ...defaultTheme.screens,
+    },
+
   },
   plugins: [],
 }
