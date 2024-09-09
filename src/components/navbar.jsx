@@ -1,8 +1,8 @@
-import { Team_Icons_Data } from "../data/Team_Icons_data"
+import { Team_Icons_Data } from "../data/Team_Icons_data.jsx"
 
 function NavBar() {
     return (
-    <div>
+    <div className="mb-12">
         <div className='grid grid-cols-8 bg-white'>
             <div className='bg-white justify-start items-start'>
                 <img
@@ -12,7 +12,7 @@ function NavBar() {
             </div> 
 
             <div className="grid grid-cols-3 col-start-3 col-span-4 whitespace-nowrap">
-                <div className="grid grid-cols-3 container mx-auto flex bg-white items-center ml-2 transform scale-75 border-r-4 border-r-gray-200 pr-16">
+                <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 border-r-4 border-r-gray-200 pr-16">
                     <img
                         className='object-contain drop-shadow-xl mx-auto'
                         src='../img/icons/svg-0.svg'
@@ -21,7 +21,7 @@ function NavBar() {
                     <span className="ml-2 col-span-2 text-base font-bold text-black">Radio MARCA</span>
                 </div>
 
-                <div className="grid grid-cols-3 container mx-auto flex bg-white items-center ml-2 transform scale-75 border-r-4 border-r-gray-2000 pr-16">
+                <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 border-r-4 border-r-gray-2000 pr-16">
                     <img
                         className='object-contain drop-shadow-xl mx-auto'
                         src='../img/icons/svg-3.svg'
@@ -30,7 +30,7 @@ function NavBar() {
                     <span className="ml-2 col-span-2 text-base font-bold text-black">Cuidate Plus</span>
                 </div>
 
-                <div className="grid grid-cols-3 container mx-auto flex bg-white items-center ml-2 transform scale-75 pr-16">
+                <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 pr-16">
                     <img
                         className='object-contain drop-shadow-xl mx-auto'
                         src='../img/icons/svg-4.svg'
@@ -65,7 +65,7 @@ function NavBar() {
             </div>
         </div>
 
-        <div className="grid grid-cols-8 bg-red-600 flex items-center justify-center">
+        <div className="grid grid-cols-8 bg-red-600 items-center justify-center">
             <div className="flex items-center justify-center font-bold">
                 <span className="text-white">Fútbol</span>
             </div>
@@ -86,13 +86,13 @@ function NavBar() {
             </div>
 
             <div className="col-span-2 flex items-center justify-center bg-red-600">
-                <form class="max-w-md mx-auto" className="mt-2 mb-2">   
-                    <label for="default-search" class="text-sm font-medium text-black sr-only dark:text-black">Search</label>
-                    <div class="relative">
-                        <input type="search" id="default-search" class="block w-full p-4 text-sm text-black border border-gray-300 bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar" required />
-                        <div class="absolute inset-y-0 right-0 flex items-center pointer-events-none border dark:border-gray-600 ps-4 pe-4">
-                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                <form className="max-w-md mx-auto mt-2 mb-2">   
+                    <label htmlFor="default-search" className="text-sm font-medium text-black sr-only dark:text-black">Search</label>
+                    <div className="relative">
+                        <input type="search" id="default-search" className="block w-full p-4 text-sm text-black border border-gray-300 bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar" required />
+                        <div className="absolute inset-y-0 right-0 flex items-center pointer-events-none border dark:border-gray-600 ps-4 pe-4">
+                            <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                             </svg> 
                         </div>
                     </div>
@@ -100,11 +100,11 @@ function NavBar() {
             </div>
         </div>
 
-        <div className='relative bg-gray'>
+        <div className='relative bg-gray lg:block md:hidden sm:hidden xs:hidden'>
                 <ul className='inline-flex'>
                 {Team_Icons_Data.map(
                       (image, index) =>    
-                    <div className="px-4 pt-4 pb-4">
+                    <div className="py-4 xl:scale-125 xl:px-8 lg:px-4 md:px-4 flex flex-shrink" key={index}>
                       <img key={index} 
                       src={`../img/icons/equipos_deportes/small/${image}`} 
                       alt="info">
