@@ -14,6 +14,8 @@ export default {
       // custom animations
       animation: {
         'autoscroll-x': 'autoscrollX 17s linear infinite',
+        'collapse-down': 'collapseDown 10s linear',
+        'collapse-up' : 'collapseUp 10s linear',
       },
     },
 

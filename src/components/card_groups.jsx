@@ -27,7 +27,7 @@ function FrontPage() {
         <CardFrontPageSmall key={index} {...card_data} />
       ))}
       <img 
-        className='col-span-1 row-span-1 h-full w-full drop-shadow-xl cursor-pointer lg:hidden md:block' 
+        className='col-span-1 row-span-1 h-full w-full border-4 border-white drop-shadow-xl cursor-pointer lg:hidden md:block' 
         src='../img/banners/codere_cuadrado.gif' 
       />
     </div>
@@ -66,7 +66,7 @@ function CardGroup2() {
 
       {/* Resoluciones medianas */}
       <div className='grid grid-cols-2 grid-rows-3 gap-4 lg:hidden md:block'>
-        <div className='col-span-2 rows-span-3 grid grid-cols-2 gap-4'>
+        <div className='col-span-2 row-span-3 grid grid-cols-2 gap-4'>
           <CardType2 {...large_card} />
           {small_cards.map((card_data, index) => (
             <CardType1 key={index} {...card_data} />

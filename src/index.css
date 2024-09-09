@@ -77,3 +77,27 @@ body {
 .autoscrollX {
   animation: autoscrollX 50s linear infinite;
 }
+
+@keyframes collapseDown {
+  0% {
+    display: block;
+    height: 0px; 
+  }
+  100% {
+    height: 100px;
+    background-color: var(--red-light);
+  }
+}
+
+.collapseDown {
+  animation: collapseUp 5s linear ease-in-out;
+}
+
+@keyframes collapseUp {
+  0% {
+    max-height: 0%; 
+  }
+  100% {
+    max-height: 100%;
+  }
+}
