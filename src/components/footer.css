@@ -1,0 +1,5 @@
+/* Make footer full bleed */
+
+footer {
+  grid-template-columns: 1fr calc(100% - 48rem) 1fr;
+}
