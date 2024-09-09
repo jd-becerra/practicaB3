@@ -5,7 +5,7 @@ import { c_separator_data } from '../data/cards_data.jsx'
 
 function Separator1() {
   return (
-    <div className='container mx-auto inline-flex border-y-4 border-y-gray-300 py-2 my-16 overflow-hidden relative'>
+    <div className='container border-y-4 border-y-gray-300 overflow-hidden relative py-2 my-16'>
       <div className='flex items-center whitespace-nowrap ease-out animate-autoscroll-x'>
         <span className="text-sm text-gray-600 font-bold">Es noticia:</span>
         <ul className='inline-flex'>
@@ -59,7 +59,7 @@ function Separator2() {
       ([event]) =>  {
         handleIntersect([event])
       },
-      { threshold: [1], rootMargin: '-100px 0px 0px 0px' }
+      { threshold: [1], rootMargin: '-100px 0px 600px 0px' }
     )
     observer.observe(banner)
 
@@ -69,7 +69,7 @@ function Separator2() {
   return (
     <div
       id='sticky-banner'
-      className={`container z-50 mx-auto h-fit py-8 my-16 ${!closeBanner ? 'sticky top-0' : 'relative' } ${isSticky ? '' : 'border-y-4 border-y-gray-300'}`}>
+      className={`z-50 mx-auto h-fit py-8 my-16 ${!closeBanner ? 'sticky top-0' : 'relative' } ${isSticky && !closeBanner ? '' : 'border-y-4 border-y-gray-300'}`}>
       <div className='mx-auto relative w-fit flex justify-center items-center bg-white'>
         <img
           className='inline-block object-cover drop-shadow-xl mx-auto cursor-pointer'
@@ -79,10 +79,11 @@ function Separator2() {
         {isSticky && !closeBanner ? (
           <button 
             onClick={() => setCloseBanner(true)} 
-            className='absolute bg-white scale-75 right-0 z-60 top-0 self-start border-2 border-red-600'> 
+            className='absolute bg-white scale-75 right-0 z-60 top-0 self-start border-4 border-red-600'> 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 text-red-600"
+                strokeWidth={3}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -102,7 +103,7 @@ function Separator2() {
 // Seccion scrolleable con cartas
 function Separator3() {
   return (
-    <div className='container mx-auto border-y-4 border-y-gray-300 py-8 my-16 overflow-hidden relative inline-flex'> 
+    <div className='mx-auto border-y-4 border-y-gray-300 py-8 my-16 overflow-hidden relative inline-flex'> 
       <div className='flex overflow-x-auto'>
         <div className='grid grid-cols-3 gap-4 mx-auto'>
           {c_separator_data.map((card_data, index) => (

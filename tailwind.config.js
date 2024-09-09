@@ -13,7 +13,7 @@ export default {
       },
       // custom animations
       animation: {
-        'autoscroll-x': 'autoscrollX 50s linear infinite',
+        'autoscroll-x': 'autoscrollX 17s linear infinite',
       },
     },
 

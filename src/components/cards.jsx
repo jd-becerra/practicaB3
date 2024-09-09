@@ -23,7 +23,7 @@ function CardFrontPage({topic, title, image}) {
 // Cartas pequeñas del front page
 function CardFrontPageSmall({topic, title, image}) {
   return (
-    <div className='col-span-1 row-span-1 drop-shadow-xl  h-full w-full flex group cursor-pointer'>
+    <div className='col-span-1 row-span-1 drop-shadow-xl h-full w-full flex group cursor-pointer'>
       <div className='relative z-0'>
         <img className='object-fill w-full h-full' src={image} alt={title} />
         <div className='absolute inset-0 bg-black transition ese-in-out duration-700 opacity-45 group-hover:opacity-10'></div>
@@ -84,33 +84,34 @@ function CardType1({topic, title, image, author, n_comments}) {
 function CardType2({topic, title, image, author, n_comments}) {
   return (
     <div 
-      className='bg-white col-span-1 row-span-2 shadow-lg shadow-gray-300 h-full w-full grid grid-rows-5 transition ease-in-out duration-300 group hover:scale-105 relative z-0 cursor-pointer'>
-      <div className='row-span-3'>
-        <img className='object-fill w-full h-full' src={image} alt={title} />
-        <span 
-          className='absolute z-10 top-4 left-4 font-semibold leading-relaxed text-base bg-red-600 text-white px-2 py-1'>
-          {topic}
-        </span>
-      </div>
-      <div className='row-span-2'>
-        <h4 
-          className='p-6 mt-4 col-span-2 text-3xl text-black text-left self-start text-2xl font-bold leading-tight group-hover:text-gray-600'>
-          {title}
-        </h4>
-      </div>
-      <div className='absolute z-10 bottom-6 right-6 text-lg'>
-        <span className='p-2 text-gray-600'>
-          {author}
-        </span>
-        {(n_comments > 0) ? (
-          <span>
-            <span className='p-2 text-gray-600'>•</span>
-            <span className='p-2 text-gray-600'>
-               {n_comments} {(n_comments === 1) ? 'comentario' : 'comentarios'}
-            </span>
+      className='bg-white shadow-lg shadow-gray-300 h-full w-full transition ease-in-out duration-300 group hover:scale-105 relative z-0 cursor-pointer lg:col-span-1 md:col-span-2 lg:row-span-2 md:row-span-1'>
+      <div className='flex flex-col h-full'>
+        <div className='relative flex-grow'>
+          <img className='object-cover w-full h-full' src={image} alt={title} />
+          <span 
+            className='absolute z-10 top-4 left-4 font-semibold leading-relaxed text-base bg-red-600 text-white px-2 py-1'>
+            {topic}
           </span>
-        ) : (<></>)
-        }
+        </div>
+        <div className='p-6 flex flex-col justify-between flex-grow'>
+          <h4 
+            className='text-2xl lg:text-3xl text-black text-left font-bold leading-tight group-hover:text-gray-600 mb-4'>
+            {title}
+          </h4>
+          <div className='text-lg text-right'>
+            <span className='text-gray-600'>
+              {author}
+            </span>
+            {n_comments > 0 && (
+              <>
+                <span className='p-2 text-gray-600'>•</span>
+                <span className='text-gray-600'>
+                  {n_comments} {n_comments === 1 ? 'comentario' : 'comentarios'}
+                </span>
+              </>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   )

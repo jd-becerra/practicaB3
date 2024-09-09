@@ -32,6 +32,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+footer {
+  grid-template-columns: 1fr calc(100% - 48rem) 1fr;
+}
+
 html, body, #app, #app>div {
   min-height: 100%;
   min-width: 100%;
