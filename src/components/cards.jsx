@@ -94,7 +94,7 @@ function CardType2({topic, title, image, author, n_comments}) {
       </div>
       <div className='row-span-2'>
         <h4 
-          className='p-6 mt-6 col-span-2 text-lg text-black text-left self-start text-2xl font-bold leading-tight group-hover:text-gray-600'>
+          className='p-6 mt-4 col-span-2 text-3xl text-black text-left self-start text-2xl font-bold leading-tight group-hover:text-gray-600'>
           {title}
         </h4>
       </div>

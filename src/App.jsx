@@ -12,7 +12,7 @@ function App() {
           <FrontPage />
           <Separator1 />
           <CardGroup1 />
-          <Separator2 />
+          {/* Separator 2 is added to CardGroup2 since it's a sticky banner */}
           <CardGroup2 />
           <Separator3 />
           <CardGroup1 />

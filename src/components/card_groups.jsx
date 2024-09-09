@@ -1,5 +1,6 @@
 import { front_page_card_data, c_fp_data, c_1_data, c_2_data } from '../data/cards_data.jsx'
 import { CardFrontPage, CardFrontPageSmall, CardType1, CardType2 } from './cards.jsx'
+import { Separator2 } from './separators.jsx'
 
 function FrontPage() {
   return (
@@ -46,12 +47,15 @@ function CardGroup2() {
   const small_cards = c_2_data.slice(1) // Se necesitan 4 cartas pequeñas
 
   return (
-    <div className='grid grid-cols-3 grid-rows-2 gap-4'>
-      <CardType1 {...small_cards[0]} />
-      <CardType1 {...small_cards[1]} />
-      <CardType2 {...large_card} />
-      <CardType1 {...small_cards[2]} />
-      <CardType1 {...small_cards[3]} />
+    <div>
+      < Separator2 />
+      <div className='grid grid-cols-3 grid-rows-2 gap-4'>
+        <CardType1 {...small_cards[0]} />
+        <CardType1 {...small_cards[1]} />
+        <CardType2 {...large_card} />
+        <CardType1 {...small_cards[2]} />
+        <CardType1 {...small_cards[3]} />
+      </div>
     </div>
   )
 }
