@@ -65,8 +65,8 @@ function CardGroup2() {
       </div>
 
       {/* Resoluciones medianas */}
-      <div className='grid grid-cols-2 grid-rows-3 gap-4 lg:hidden md:block'>
-        <div className='col-span-2 row-span-3 grid grid-cols-2 gap-4'>
+      <div className='grid md:grid-cols-2 md:grid-rows-3 gap-4 lg:hidden md:block sm:grid-cols-1'>
+        <div className='md:col-span-2 row-span-3 grid md:grid-cols-2 gap-4 sm:col-span-1 sm:grid-cols-1'>
           <CardType2 {...large_card} />
           {small_cards.map((card_data, index) => (
             <CardType1 key={index} {...card_data} />

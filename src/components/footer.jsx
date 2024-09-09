@@ -5,6 +5,7 @@ import './footer.css'
 function Footer() {
   // Toggles para las secciones colapsables
   const toggles = footer_links.map(() => useState(false))
+  const [toggle_copyright, setToggleCopyRight] = useState(false)
 
   return (
     <>
@@ -56,26 +57,28 @@ function Footer() {
               {footer_links.map((link_group, index) => (
                 <div key={index}>
                   <button 
-                    className='text-left text-base bg-gray-100 w-full'
+                    className='text-left text-base bg-gray-100 w-full border-b-2 border-gray-300'
                     onClick={() => toggles[index][1](prev => !prev)}
                     >
                     <h6 className="font-bold text-gray-800 mb-4">{link_group.title}</h6>
                   </button>
                   <ul 
-                    className={`text-gray-600 bg-white border-b-2 border-gray-300 ${toggles[index][0] ? 'animation-collapse-down' : 'hidden'}`}>
+                    className={`text-gray-600 bg-white ${toggles[index][0] ? 'animation-collapse-down' : 'hidden'}`}>
                       {link_group.links.map((link, index) => (
                         <li key={index}><a className='cursor-pointer hover:text-red-600'>{link}</a></li>
                       ))}
                   </ul>
                 </div>
               ))}
-              <div className="text-center text-gray-800 text-sm py-4">
-                <p className='text-base font-bold border-t-4 border-t-gray-300 pt-8'>
+              <div className='text-gray-800 text-sm'>
+                <button 
+                  onClick={() => setToggleCopyRight(prev => !prev)}
+                  className='text-center text-base font-bold py-8 bg-gray-100 border-b-2 border-gray-300 w-full'>
                   {footer_copyright.header}
-                </p>
-                <div className='xl:inline-block lg:mt-2 md:mt-4 grid lg:grid-cols-2 md:grid-cols-2'>
+                </button>
+                <div className={`'xl:inline-block lg:mt-2 md:mt-4 grid lg:grid-cols-2 md:grid-cols-2' ${toggle_copyright ? 'animation-collapse-down' : 'hidden'}`}>
                   {footer_copyright.links.map((link, index) => (
-                    <a key={index} className='cursor-pointer hover:text-red-600 px-4 lg:mt-2'>{link}</a>
+                    <a key={index} className='text-left cursor-pointer hover:text-red-600 px-4 mt-2'>{link}</a>
                   ))
                   }
                 </div>

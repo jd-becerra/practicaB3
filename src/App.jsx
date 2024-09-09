@@ -7,7 +7,7 @@ import Footer from './components/footer.jsx'
 
 function App() {
   return (
-    <div className="xl:container mx-auto">
+    <div className="xl:container mx-auto lg:scale-100 md:scale-90 sm:scale-75">
       <div className="pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <NavBar/>

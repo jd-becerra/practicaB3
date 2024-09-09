@@ -84,7 +84,7 @@ function CardType1({topic, title, image, author, n_comments}) {
 function CardType2({topic, title, image, author, n_comments}) {
   return (
     <div 
-      className='bg-white shadow-lg shadow-gray-300 h-full w-full transition ease-in-out duration-300 group hover:scale-105 relative z-0 cursor-pointer lg:col-span-1 lg:row-span-2 md:col-span-2 md:row-span-1 '>
+      className='bg-white shadow-lg shadow-gray-300 h-full w-full transition ease-in-out duration-300 group hover:scale-105 relative z-0 cursor-pointer lg:col-span-1 lg:row-span-2 md:col-span-2 md:row-span-1 sm:col-span-1'>
       <div className='flex flex-col h-full'>
         <div className='relative flex-grow'>
           <img className='object-cover w-full h-full' src={image} alt={title} />
@@ -96,43 +96,6 @@ function CardType2({topic, title, image, author, n_comments}) {
         <div className='p-6 flex flex-col justify-between flex-grow'>
           <h4 
             className='text-3xl text-black text-left font-bold leading-tight group-hover:text-gray-600 mb-4'>
-            {title}
-          </h4>
-          <div className='text-lg text-right'>
-            <span className='text-gray-600'>
-              {author}
-            </span>
-            {n_comments > 0 && (
-              <>
-                <span className='p-2 text-gray-600'>•</span>
-                <span className='text-gray-600'>
-                  {n_comments} {n_comments === 1 ? 'comentario' : 'comentarios'}
-                </span>
-              </>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-// Carta mediana para la sección 2, (igual que CardType2, pero horizontal)
-function CardType2Md({topic, title, image, author, n_comments}) {
-  return (
-    <div 
-      className='bg-white shadow-lg shadow-gray-300 h-full w-full transition ease-in-out duration-300 group hover:scale-105 relative z-0 cursor-pointer lg:col-span-1 lg:row-span-2 md:col-span-2 md:row-span-1 '>
-      <div className='flex flex-col h-full'>
-        <div className='relative flex-grow'>
-          <img className='object-cover w-full h-full' src={image} alt={title} />
-          <span 
-            className='absolute z-10 top-4 left-4 font-semibold leading-relaxed text-base bg-red-600 text-white px-2 py-1'>
-            {topic}
-          </span>
-        </div>
-        <div className='p-6 flex flex-col justify-between flex-grow'>
-          <h4 
-            className='text-2xl lg:text-3xl md: text-black text-left font-bold leading-tight group-hover:text-gray-600 mb-4'>
             {title}
           </h4>
           <div className='text-lg text-right'>
