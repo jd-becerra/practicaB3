@@ -29,7 +29,7 @@ function FrontPage() {
         ))}
         <img 
           className='col-span-1 row-span-1 h-full w-full border-4 border-white drop-shadow-xl cursor-pointer lg:hidden md:block' 
-          src='../img/banners/codere_cuadrado.gif' 
+          src='../img/banners/caliente_cuadrado.gif' 
         />
       </div>
     </>
@@ -45,7 +45,7 @@ function FrontPageSm() {
       ))}
       <img 
         className='col-span-1 row-span-1 h-full w-full border-4 border-white drop-shadow-xl cursor-pointer lg:hidden md:block' 
-        src='../img/banners/codere_cuadrado.gif' 
+        src='../img/banners/caliente_cuadrado.gif' 
       />
     </div>
   )

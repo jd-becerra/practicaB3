@@ -17,6 +17,7 @@ module.exports = {
         'autoscroll-x': 'autoscrollX 17s linear infinite',
         'collapse-down': 'collapseDown 1s linear',
         'collapse-up' : 'collapseUp 1s linear',
+        'collapse-left': 'collapseLeft 1s linear',
       },
     },
 
