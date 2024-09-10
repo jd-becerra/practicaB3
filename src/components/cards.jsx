@@ -30,25 +30,40 @@ function CardFrontPageSmall({topic, title, image}) {
         <div className='absolute z-10 bottom-6 left-4 right-4 grid grid-cols-2 gap-y-4'>
           <div className='col-span-1 absolute left-0 -top-10'>
             <span 
-              className='sm:block xs:hidden font-semibold leading-relaxed text-sm bg-red-600 text-white px-2 py-1'>
-            {topic}
-            </span>
-
-            <span 
-              className='sm:hidden xs:block font-semibold leading-relaxed text-xs bg-red-600 text-white px-2 py-1'>
+              className='font-semibold leading-relaxed text-sm bg-red-600 text-white px-2 py-1'>
             {topic}
             </span>
           </div>
           <h4 
-            className='sm:block xs:hidden col-span-2 text-sm text-white text-left self-start text-base font-semibold leading-tight group-hover:text-gray-100'>
-            {title}
-          </h4>
-
-          <h4 
-            className='sm:hidden xs:block col-span-2 text-xs text-white text-left self-start text-base font-semibold leading-tight group-hover:text-gray-100'>
+            className='col-span-2 text-sm text-white text-left self-start text-base font-semibold leading-tight group-hover:text-gray-100'>
             {title}
           </h4>
         </div>
+      </div>
+    </div>
+  )
+}
+
+// FrontPage muy pequeña
+
+function CardFrontPageVerySmall({topic, title, image}) {
+  return (
+    <div 
+      className='bg-gray-600 col-span-1 row-span-1 shadow-lg shadow-gray-300 h-full grid grid-rows-2 transition ease-in-out duration-300 group hover:scale-105 relative z-0 cursor-pointer flex-shrink'>
+      <div className='row-span-2'>
+        <img className='object-fill w-full h-full' src={image} alt={title} />
+      </div>
+      <div className='row-span-1 bg-gray-600'>
+        <h4
+          className='p-4 col-span-2 text-base text-white text-left self-start text-base font-semibold leading-tight group-hover:text-gray-100'>
+          {title}
+
+          <div className='pt-4'>
+            <span className='font-bold leading-relaxed text-sm bg-red-600 text-white px-2 py-1'>
+              {topic}
+            </span>
+          </div>
+        </h4>
       </div>
     </div>
   )
@@ -212,4 +227,4 @@ function CardSeparator({topic, title, image, n_comments}) {
 }
 
 
-export { CardFrontPage, CardFrontPageSmall, CardType1, CardType2, CardSeparator }
+export { CardFrontPage, CardFrontPageSmall, CardFrontPageVerySmall, CardType1, CardType2, CardSeparator }

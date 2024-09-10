@@ -1,5 +1,5 @@
 import { front_page_card_data, c_fp_data, c_1_data, c_2_data } from '../data/cards_data.jsx'
-import { CardFrontPage, CardFrontPageSmall, CardType1, CardType2 } from './cards.jsx'
+import { CardFrontPage, CardFrontPageSmall, CardFrontPageVerySmall, CardType1, CardType2 } from './cards.jsx'
 import { Separator2 } from './separators.jsx'
 
 function FrontPage() {
@@ -42,6 +42,21 @@ function FrontPageSm() {
       <CardFrontPageSmall {...front_page_card_data} />
       {c_fp_data.map((card_data, index) => (
         <CardFrontPageSmall key={index} {...card_data} />
+      ))}
+      <img 
+        className='col-span-1 row-span-1 h-full w-full border-4 border-white drop-shadow-xl cursor-pointer lg:hidden md:block' 
+        src='../img/banners/codere_cuadrado.gif' 
+      />
+    </div>
+  )
+}
+
+function FrontPageVr() {
+  return (
+    <div className='grid grid-cols-1 gap-2' >
+      <CardFrontPageVerySmall {...front_page_card_data} />
+      {c_fp_data.map((card_data, index) => (
+        <CardFrontPageVerySmall key={index} {...card_data} />
       ))}
       <img 
         className='col-span-1 row-span-1 h-full w-full border-4 border-white drop-shadow-xl cursor-pointer lg:hidden md:block' 
@@ -94,4 +109,4 @@ function CardGroup2() {
   )
 }
 
-export { FrontPage, FrontPageSm, CardGroup1, CardGroup2 }
+export { FrontPage, FrontPageSm, FrontPageVr, CardGroup1, CardGroup2 }

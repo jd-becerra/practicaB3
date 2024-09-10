@@ -1,6 +1,6 @@
 // import { useState } from 'react'
 import './App.css'
-import { FrontPage, FrontPageSm, CardGroup1, CardGroup2 } from './components/card_groups.jsx'
+import { FrontPage, FrontPageSm, FrontPageVr, CardGroup1, CardGroup2 } from './components/card_groups.jsx'
 import { Separator1, Separator3 } from './components/separators.jsx'
 import { NavBar } from './components/navbar.jsx'
 import Footer from './components/footer.jsx'
@@ -16,8 +16,11 @@ function App() {
             <div className='lg:block md:block sm:hidden xs:hidden'>
               <FrontPage />
             </div>
-            <div className='lg:hidden md:hidden sm:block xs:block'>
+            <div className='lg:hidden md:hidden sm:block xs:hidden'>
               <FrontPageSm />
+            </div>
+            <div className='lg:hidden md:hidden sm:hidden xs:block'>
+              <FrontPageVr />
             </div>
             <Separator1 />
             <CardGroup1 />
