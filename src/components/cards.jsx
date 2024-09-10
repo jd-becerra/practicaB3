@@ -35,7 +35,7 @@ function CardFrontPageSmall({topic, title, image}) {
             </span>
           </div>
           <h4 
-            className='lg:block md:block col-span-2 text-sm text-white text-left self-start text-base font-semibold leading-tight group-hover:text-gray-100'>
+            className='col-span-2 text-sm text-white text-left self-start text-base font-semibold leading-tight group-hover:text-gray-100'>
             {title}
           </h4>
         </div>
