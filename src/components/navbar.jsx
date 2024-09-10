@@ -16,8 +16,7 @@ function debounce(func, delay) {
 function NavBar() {
   // toggles para las secciones de la navbar
 
-  const [toggleSection, setToggleSection] = useState(false)
-  const [sectionActiveId, setSectionActiveId] = useState(0)
+  const [sectionActiveId, setSectionActiveId] = useState(-1)
 
   const [isSticky, setIsSticky] = useState(false)
   const [scrollPercentage, setScrollPercentage] = useState(0)
@@ -31,9 +30,8 @@ function NavBar() {
     setShowLangMenu(false)
   }
 
-  function showSection(section, toggle) {
+  function showSection(section) {
     setSectionActiveId(section)
-    setToggleSection(toggle)
   }
 
   useEffect(() => {
@@ -61,6 +59,7 @@ function NavBar() {
       setIsSticky(event.intersectionRatio < 1)
       setShowMenuSm(isSticky)
       setShowLangMenu(isSticky)
+      setSectionActiveId(-1)
     }, 100)
 
     const observer = new IntersectionObserver(
@@ -175,32 +174,32 @@ function NavBar() {
 
           <div className="grid grid-cols-8 bg-red-600 items-center justify-center text-lg h-16">
               <button 
-                onMouseEnter={() => showSection(0, true)}
+                onMouseEnter={() => showSection(0)}
                 className="flex items-center justify-center font-bold h-full border-red-300 hover:bg-gray-800">
                   <span className="text-white">Fútbol</span>
               </button>
               <button 
-                onMouseEnter={() => showSection(1, true)}
+                onMouseEnter={() => showSection(1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Motor</span>
               </button>
               <button 
-                onMouseEnter={() => showSection(2, true)}
+                onMouseEnter={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Boxeo</span>
               </button>
               <button 
-                onMouseEnter={() => showSection(3, true)}
+                onMouseEnter={() => showSection(2)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">NFL</span>
               </button>
               <button 
-                onMouseEnter={() => showSection(4, true)}  
+                onMouseEnter={() => showSection(3)}  
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Otros deportes</span>
               </button>
               <button
-                onMouseEnter={() => showSection(5, true)}
+                onMouseEnter={() => showSection(4)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Más+</span>
               </button>
@@ -218,8 +217,26 @@ function NavBar() {
                   </form>
               </div>
           </div>
-
-          <div className='relative bg-gray-100 lg:block md:hidden sm:hidden xs:hidden shadow-xl'>
+            { sectionActiveId !== -1 ? (
+                <div 
+                  onMouseLeave={() => showSection(-1)}
+                  className='bg-gray-800 z-50 top-16 w-full'>
+                  <ul className='inline-flex'>
+                    {navbar_data[sectionActiveId].categories.map(
+                      (section, index) => (
+                        <ul key={index} className='mx-4'>
+                          <button className='text-white'>{section.title}</button>
+                          { section.subcategories.map(
+                            (subcategory, index) => (
+                              <li key={index} className='text-white'>{subcategory}</li>
+                            ))}
+                        </ul>
+                      )
+                    )}
+                  </ul>
+                </div>
+              ) : (
+                <div className='relative bg-gray-100 lg:block md:hidden sm:hidden xs:hidden shadow-xl'>
                   <ul className='inline-flex'>
                   {Team_Icons_Data.map(
                         (image, index) =>    
@@ -231,7 +248,9 @@ function NavBar() {
                       </div>
                   )} 
                   </ul>
-          </div>
+              </div>
+              )
+            }
           </>
         ) : (
           <div className='bg-white relative sticky top-0 z-50 inline-flex xl:h-10 sm:h-6 w-full'>
