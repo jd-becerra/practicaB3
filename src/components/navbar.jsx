@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Team_Icons_Data } from "../data/Team_Icons_data.jsx"
+import { RadioMarcaSvg } from '../components/navbar_icons.jsx'
+import navbar_data from '../data/navbar_data.jsx'
 
 function debounce(func, delay) {
   let timeout;
@@ -13,15 +15,9 @@ function debounce(func, delay) {
 
 function NavBar() {
   // toggles para las secciones de la navbar
-  const [radioMarca, setRadioMarca] = useState(false)
-  const [cuidatePlus, setCuidatePlus] = useState(false)
-  const [loMasTrending, setLoMasTrending] = useState(false)
-  const [futbol, setFutbol] = useState(false)
-  const [motor, setMotor] = useState(false)
-  const [boxeo, setBoxeo] = useState(false)
-  const [nfl, setNfl] = useState(false)
-  const [otrosDeportes, setOtrosDeportes] = useState(false)
-  const [mas, setMas] = useState(false)
+
+  const [toggleSection, setToggleSection] = useState(false)
+  const [sectionActiveId, setSectionActiveId] = useState(0)
 
   const [isSticky, setIsSticky] = useState(false)
   const [scrollPercentage, setScrollPercentage] = useState(0)
@@ -33,6 +29,11 @@ function NavBar() {
   function changeLang(lang) {
     setCurrentLang(lang)
     setShowLangMenu(false)
+  }
+
+  function showSection(section, toggle) {
+    setSectionActiveId(section)
+    setToggleSection(toggle)
   }
 
   useEffect(() => {
@@ -76,20 +77,21 @@ function NavBar() {
   return (
     <div 
       id='sticky-navbar'
-      className="mb-12 sticky top-0 z-50">
+      className="mb-12 sticky top-0 z-50 -mx-4">
       <div className='lg:block md:hidden sm:hidden xs:hidden'>
         { !isSticky ? (
           <>
           <div className='grid grid-cols-8 bg-white'>
               <div className='bg-white items-center'>
                   <img
-                      className='drop-shadow-xl mx-auto pl-10 pt-3'
+                      className='drop-shadow-xl mx-auto h-16 xl:w-96 pl-10 pt-3 pb-3'
                       src='../img/marca-logo-2.png'
                   />
               </div> 
 
               <div className="grid grid-cols-3 col-start-3 col-span-4 whitespace-nowrap text-xl">
                   <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 border-r-4 border-r-gray-200 pr-16">
+
                       <img
                           className='object-contain drop-shadow-xl mx-auto'
                           src='../img/icons/svg-0.svg'
@@ -121,7 +123,7 @@ function NavBar() {
                   <div className='mt-4 relative'>
                     <button 
                         onClick={() => setShowLangMenu(!showLangMenu)}
-                        className="inline-flex items-center border-2 border-gray-600 shadow-sm bg-white self-start xl:p-1 lg:p-0">
+                        className="inline-flex items-center border-2 border-gray-300 shadow-sm bg-white self-start xl:p-1 lg:p-0 -ml-6">
                         <img
                           src={`../img/icons/lang/${currentLang}.svg`}
                           alt="Mexico Flag"
@@ -134,61 +136,72 @@ function NavBar() {
                             className="ml-1"
                         />
                     </button>
-                  <div className={`${showLangMenu ? 'block' : 'hidden'} absolute items-center right-0 w-48 bg-white border border-gray-600 shadow-lg mt-2 z-50`}>
+                  <div className={`${showLangMenu ? 'block' : 'hidden'} absolute items-center right-0 w-48 bg-white border border-gray-300 shadow-lg mt-2 z-50`}>
                       <option 
                         onClick={() => changeLang('MX')}
-                        className={`px-4 py-2 hover:bg-gray-200 flex items-center border-b-2 border-gray-300 ${currentLang === 'MX' ? 'bg-red-600 text-white' : ''}`}>
+                        className={`px-4 py-2 flex items-center border-b-2 border-gray-300 cursor-pointer ${currentLang === 'MX' ? 'bg-red-600 text-white' : 'hover:bg-gray-200'}`}>
                         <img src='../img/icons/lang/MX.svg' alt='Mexico Flag' className="w-10 h-7 mr-2"/>
                         <span> México </span>
                       </option>
                       <option 
                         onClick={() => changeLang('ES')}
-                        className={`px-4 py-2 hover:bg-gray-200 flex items-center border-b-2 border-gray-300 ${currentLang === 'ES' ? 'bg-red-600 text-white' : ''}`}>
+                        className={`px-4 py-2 flex items-center border-b-2 border-gray-300 cursor-pointer ${currentLang === 'ES' ? 'bg-red-600 text-white' : 'hover:bg-gray-200'}`}>
                         <img src='../img/icons/lang/ES.svg' alt='Spain Flag' className="w-10 h-7 mr-2"/>
                         <span> España </span>
                       </option>
                       <option 
                         onClick={() => changeLang('EN')}
-                        className={`px-4 py-2 hover:bg-gray-200 flex items-center border-b-2 border-gray-300 ${currentLang === 'EN' ? 'bg-red-600 text-white' : ''}`}>
+                        className={`px-4 py-2 flex items-center border-b-2 border-gray-300 cursor-pointer ${currentLang === 'EN' ? 'bg-red-600 text-white' : 'hover:bg-gray-200'}`}>
                         <img src='../img/icons/lang/EN.svg' alt='World Flag' className="w-10 h-7 mr-2"/>
                         <span> English </span>
                       </option>
                       <option 
                         onClick={() => changeLang('US')}
-                        className={`px-4 py-2 hover:bg-gray-200 flex items-center border-b-2 border-gray-300 ${currentLang === 'US' ? 'bg-red-600 text-white' : ''}`}>
+                        className={`px-4 py-2 flex items-center cursor-pointer ${currentLang === 'US' ? 'bg-red-600 text-white' : 'hover:bg-gray-200'}`}>
                         <img src='../img/icons/lang/US.svg' alt='USA Flag' className="w-10 h-7 mr-2"/>
                         <span> USA </span>
                       </option>
                     </div>
                   </div>
-                  <div className="container mx-auto flex bg-white transform mt-2 cursor-pointer active:scale-75">
+                  <div className="container mx-auto flex bg-white transform mt-3 cursor-pointer active:scale-75">
                       <img
                           className='object-contain drop-shadow-xl mx-auto w-10 h-10'
                           src='../img/icons/user_red_icon.png'
-                          alt='Radio Marca Icon'
+                          alt='Iniciar sesión'
                       />
                   </div>
               </div>
           </div>
 
-          <div className="grid grid-cols-8 bg-red-600 items-center justify-center text-xl h-20">
-              <button className="flex items-center justify-center font-bold">
+          <div className="grid grid-cols-8 bg-red-600 items-center justify-center text-lg h-16">
+              <button 
+                onMouseEnter={() => showSection(0, true)}
+                className="flex items-center justify-center font-bold h-full border-red-300 hover:bg-gray-800">
                   <span className="text-white">Fútbol</span>
               </button>
-              <button className="flex items-center justify-center font-bold">
+              <button 
+                onMouseEnter={() => showSection(1, true)}
+                className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Motor</span>
               </button>
-              <button className="flex items-center justify-center font-bold">
+              <button 
+                onMouseEnter={() => showSection(2, true)}
+                className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Boxeo</span>
               </button>
-              <button className="flex items-center justify-center font-bold">
+              <button 
+                onMouseEnter={() => showSection(3, true)}
+                className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">NFL</span>
               </button>
-              <button className="flex items-center justify-center font-bold">
+              <button 
+                onMouseEnter={() => showSection(4, true)}  
+                className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Otros deportes</span>
               </button>
               <button
-                  className="flex items-center justify-center font-bold">
+                onMouseEnter={() => showSection(5, true)}
+                className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Más+</span>
               </button>
 
@@ -196,7 +209,6 @@ function NavBar() {
                   <form className="max-w-md mx-auto xl:w-72 lg:w-56">   
                       <label htmlFor="default-search" className="text-xl font-medium text-red-600 sr-only">Search</label>
                       <div className="relative">
-                          <input type="search" id="default-search" className="block w-full p-4 text-base text-red-600 border border-red-300 bg-white focus:ring-gray-300 focus:border-gray-300 placeholder-red-600" placeholder="Buscar" required />
                           <button className="absolute inset-y-0 right-0 flex items-center border ps-4 pe-4 border-red-600">
                               <svg className="w-4 h-4 text-red-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
@@ -211,7 +223,7 @@ function NavBar() {
                   <ul className='inline-flex'>
                   {Team_Icons_Data.map(
                         (image, index) =>    
-                      <div className="py-4 xl:scale-125 2xl:px-8 xl:px-4 lg:px-4 md:px-4 flex flex-shrink cursor-pointer" key={index}>
+                      <div className="py-4 2xl:px-7 xl:px-4 lg:px-4 md:px-4 flex flex-shrink cursor-pointer" key={index}>
                         <img key={index} 
                         src={`../img/icons/equipos_deportes/small/${image}`} 
                         alt="info">
@@ -222,14 +234,14 @@ function NavBar() {
           </div>
           </>
         ) : (
-          <div className='bg-white relative sticky top-0 z-50 inline-flex h-12 w-full'>
+          <div className='bg-white relative sticky top-0 z-50 inline-flex xl:h-10 sm:h-6 w-full'>
               <img 
-                className='ml-10 cursor-pointer z-20'
-                src='../img/icons/marca_fondo_blanco.jpg'
+                className='ml-20 sm:ml-10 xs:ml-10 cursor-pointer z-20 h-full'
+                src='../img/icons/Marca.png'
               />
               <div
                 style={{ width: `${scrollPercentage}%` }}
-                className='z-10 bg-red-600 h-12 w-${scrollPercentage} absolute top-0 left-0'
+                className='z-10 bg-red-600 xl:h-10 sm:h-6 w-${scrollPercentage} absolute top-0 left-0'
               ></div>
             </div>
         )}
@@ -238,7 +250,7 @@ function NavBar() {
       <div className='lg:hidden md:block sm:block xs:block -mb-4'>
         { !isSticky ? (
         <div className='sticky top-0 z-50'>
-          <div className='relative h-16 w-full bg-red-600'>
+          <div className={`relative h-16 w-full ${showMenuSm ? 'animate-red-white' : 'animate-white-red'}`}>
           <button className='absolute left-10 z-20 h-16'>
             <img 
               className='w-16'
@@ -251,11 +263,7 @@ function NavBar() {
                 <button
                   className='text-white mx-4 self-start h-12 w-12'
                 >
-                  <img
-                    className='drop-shadow-xl'
-                    src='../img/icons/svg-0.svg'
-                    alt='Radio Marca Icon'
-                  />
+                  <RadioMarcaSvg />
                 </button>
                 <button 
                   onClick={() => setShowMenuSm(true)}

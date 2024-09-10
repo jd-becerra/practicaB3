@@ -45,8 +45,6 @@ html, body, #app, #app>div {
 
 body {
   display: flex;
-  min-width: 100vw; /* so the body extends almost the full width of the page */
-  min-height: 100%;
 }
 
 @media (prefers-color-scheme: light) {
@@ -97,11 +95,19 @@ body {
   0% {
     overflow: hidden;
     max-height: 400px;
+    overflow: hidden;
+    transform-origin: top;
+    transform: scaleY(100%);
+  }
+  50%{
+    color: var(--white);
   }
   100% {
-    transform: scaleY(0%);
     max-height: 0px;
+    color: var(--white);
     display: hidden;
+    overflow: hidden;
+    transform: scaleY(0%);
   }
 }
 
@@ -113,13 +119,40 @@ body {
   0% {
     overflow: hidden;
     max-width: 100px;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
   }
   100% {
     transform: scaleY(100%);
     max-width: 100%;
+    opacity: 1;
   }
 }
 
 .collapseLeft {
   animation: collapseLeft 2s linear ease-in-out;
+}
+
+@keyframes fadeWhiteRed {
+  0% {
+    background-color: var(--white);
+  }
+  100% {
+    background-color: var(--red);
+  }
+}
+
+.fadeWhiteRed {
+  animation: fadeWhiteRed 2s linear;
+}
+
+@keyframes fadeRedWhite {
+  0% {
+    background-color: var(--red);
+  }
+  100% {
+    background-color: var(--white);
+  }
 }

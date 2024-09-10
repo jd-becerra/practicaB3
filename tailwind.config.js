@@ -15,9 +15,11 @@ module.exports = {
       // custom animations
       animation: {
         'autoscroll-x': 'autoscrollX 17s linear infinite',
-        'collapse-down': 'collapseDown 1s linear',
-        'collapse-up' : 'collapseUp 1s linear',
-        'collapse-left': 'collapseLeft 1s linear',
+        'collapse-down': 'collapseDown 1s linear forwards',
+        'collapse-up' : 'collapseUp 0.5s linear forwards',
+        'collapse-left': 'collapseLeft 1s linear forwards',
+        'red-white': 'fadeRedWhite 0.5s linear forwards',
+        'white-red': 'fadeWhiteRed 0.5s linear forwards',
       },
     },
 

@@ -69,7 +69,7 @@ function Separator2() {
   return (
     <div
       id='sticky-banner'
-      className={`z-50 mx-auto h-fit py-8 my-16 ${!closeBanner ? 'sticky top-20' : 'relative' } ${isSticky && !closeBanner ? '' : 'border-y-4 border-y-gray-300'}`}>
+      className={`z-50 mx-auto h-fit py-8 my-16 ${!closeBanner ? 'sticky top-10' : 'relative' } ${isSticky && !closeBanner ? '' : 'border-y-4 border-y-gray-300'}`}>
       <div className='mx-auto relative w-fit flex justify-center items-center bg-white'>
         <img
           className='inline-block object-cover drop-shadow-xl mx-auto cursor-pointer'
