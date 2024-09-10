@@ -59,7 +59,7 @@ function Separator2() {
       ([event]) =>  {
         handleIntersect([event])
       },
-      { threshold: [1], rootMargin: '-100px 0px 600px 0px' }
+      { threshold: [1], rootMargin: '-200px 0px 600px 0px' }
     )
     observer.observe(banner)
 
@@ -69,7 +69,7 @@ function Separator2() {
   return (
     <div
       id='sticky-banner'
-      className={`z-50 mx-auto h-fit py-8 my-16 ${!closeBanner ? 'sticky top-0' : 'relative' } ${isSticky && !closeBanner ? '' : 'border-y-4 border-y-gray-300'}`}>
+      className={`z-50 mx-auto h-fit py-8 my-16 ${!closeBanner ? 'sticky top-20' : 'relative' } ${isSticky && !closeBanner ? '' : 'border-y-4 border-y-gray-300'}`}>
       <div className='mx-auto relative w-fit flex justify-center items-center bg-white'>
         <img
           className='inline-block object-cover drop-shadow-xl mx-auto cursor-pointer'
@@ -103,7 +103,7 @@ function Separator2() {
 // Seccion scrolleable con cartas
 function Separator3() {
   return (
-    <div className='container border-y-4 border-y-gray-300 overflow-x-scroll relative py-4 my-16'>
+    <div className='container border-y-4 border-y-gray-300 overflow-x-scroll relative py-4 my-16 scroll-p-4'>
       <ul className='flex items-center whitespace-wrap gap-2 animate-autoscroll-x'>
         {c_separator_data.map((card_data, index) => (
           <li key={index} className='inline-fex'>

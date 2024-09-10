@@ -8,17 +8,6 @@ globalThis.resizeTo(200, 1080)
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <body>
       <App />
-    </body>
   </StrictMode>,
 )
-
-const footer = document.getElementsById('react-footer')
-if (footer) {
-  createRoot(footer).render(
-    <StrictMode>
-      <Footer />
-    </StrictMode>,
-  )
-}

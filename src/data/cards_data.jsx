@@ -146,6 +146,12 @@ const c_separator_data = [
     n_comments: 0,
   },
   {
+    topic: 'FÓRMULA 1',
+    title: 'Salario de Adrian Newey con Aston Martin: Casi el triple del sueldo de Checo Pérez',
+    image: '/img/cards/card_t1_2.webp',
+    n_comments: 0,
+  },
+  {
     topic: 'FÚTBOL',
     title: 'Resumen y goles Estados Unidos vs Canadá: la Hoja de Maple se queda el triunfo y avisa a México de cara al martes',
     image: '/img/cards/card_separator_3.webp',
@@ -156,18 +162,6 @@ const c_separator_data = [
     title: 'Haas firma a piloto de Ferrari para sustituir a Magnussen en Azerbaiyán',
     image: '/img/cards/card_t1_2.webp',
     n_comments: 12,
-  },
-  {
-    topic: 'FÓRMULA 1',
-    title: 'Salario de Adrian Newey con Aston Martin: Casi el triple del sueldo de Checo Pérez',
-    image: '/img/cards/card_t1_2.webp',
-    n_comments: 0,
-  },
-  {
-    topic: 'FÚTBOL FEMENIL',
-    title: 'México vs Colombia Femenil Sub-20: dónde ver en vivo, horario y transmisión Copa Mundial de Fútbol Femenina Sub-20',
-    image: '/img/cards/card_t1_3.jpg',
-    n_comments: 0,
   },
  {
     topic: 'LIGA MX 2024',
@@ -182,6 +176,12 @@ const c_separator_data = [
     n_comments: 0,
   },
   {
+    topic: 'FÚTBOL FEMENIL',
+    title: 'México vs Colombia Femenil Sub-20: dónde ver en vivo, horario y transmisión Copa Mundial de Fútbol Femenina Sub-20',
+    image: '/img/cards/card_t1_3.jpg',
+    n_comments: 0,
+  },
+  {
     topic: 'FÚTBOL',
     title: 'Resumen y goles Estados Unidos vs Canadá: la Hoja de Maple se queda el triunfo y avisa a México de cara al martes',
     image: '/img/cards/card_separator_3.webp',
@@ -194,17 +194,18 @@ const c_separator_data = [
     n_comments: 12,
   },
   {
-    topic: 'FÓRMULA 1',
-    title: 'Salario de Adrian Newey con Aston Martin: Casi el triple del sueldo de Checo Pérez',
-    image: '/img/cards/card_t1_2.webp',
-    n_comments: 0,
-  },
-  {
     topic: 'FÚTBOL FEMENIL',
     title: 'México vs Colombia Femenil Sub-20: dónde ver en vivo, horario y transmisión Copa Mundial de Fútbol Femenina Sub-20',
     image: '/img/cards/card_t1_3.jpg',
     n_comments: 0,
   },
+  {
+    topic: 'FÓRMULA 1',
+    title: 'Salario de Adrian Newey con Aston Martin: Casi el triple del sueldo de Checo Pérez',
+    image: '/img/cards/card_t1_2.webp',
+    n_comments: 0,
+  },
+
 ]
 
 

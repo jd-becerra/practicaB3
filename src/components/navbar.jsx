@@ -1,12 +1,82 @@
+import React, { useState, useEffect } from 'react'
 import { Team_Icons_Data } from "../data/Team_Icons_data.jsx"
 
+function debounce(func, delay) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+}
+
 function NavBar() {
-    return (
-    <div className="mb-12">
+  // toggles para las secciones de la navbar
+  const [radioMarca, setRadioMarca] = useState(false)
+  const [cuidatePlus, setCuidatePlus] = useState(false)
+  const [loMasTrending, setLoMasTrending] = useState(false)
+  const [futbol, setFutbol] = useState(false)
+  const [motor, setMotor] = useState(false)
+  const [boxeo, setBoxeo] = useState(false)
+  const [nfl, setNfl] = useState(false)
+  const [otrosDeportes, setOtrosDeportes] = useState(false)
+  const [mas, setMas] = useState(false)
+
+  const [isSticky, setIsSticky] = useState(false)
+  const [scrollPercentage, setScrollPercentage] = useState(0)
+
+  useEffect(() => {
+
+    const banner = document.getElementById('sticky-navbar')
+
+    const totalHeight = document.body.scrollHeight - globalThis.innerHeight
+
+    function handleScroll() {
+      const windowHeight = globalThis.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = globalThis.scrollY || document.documentElement.scrollTop;
+      const scrollableHeight = documentHeight - windowHeight;
+      
+      if (scrollableHeight > 0) {
+        const percentage = Math.round((scrollTop / scrollableHeight) * 100);
+        setScrollPercentage(Math.min(percentage, 100));
+      } else {
+        setScrollPercentage(100);
+      }
+    }
+
+    globalThis.addEventListener('scroll', () => handleScroll())
+
+    const handleIntersect = debounce(([event]) => {
+      setIsSticky(event.intersectionRatio < 1)
+    }, 100)
+
+    const observer = new IntersectionObserver(
+      ([event]) =>  {
+        handleIntersect([event])
+      },
+      { threshold: [1], rootMargin: '-30px 0px 600px 0px' }
+    )
+    observer.observe(banner)
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    console.log('Updated scroll percentage:', scrollPercentage);
+  }, [scrollPercentage]);
+
+  return (
+    <div 
+      id='sticky-navbar'
+      className="mb-12 sticky top-0 z-50">
+      { !isSticky ? (
+        <>
         <div className='grid grid-cols-8 bg-white'>
-            <div className='bg-white justify-start items-start'>
+            <div className='bg-white items-center'>
                 <img
-                    className='drop-shadow-xl mx-auto'
+                    className='drop-shadow-xl mx-auto pl-10 pt-3'
                     src='../img/marca-logo-2.png'
                 />
             </div> 
@@ -55,9 +125,9 @@ function NavBar() {
                     />
                 </div>
 
-                <div className="container mx-auto flex bg-white transform scale-50">
+                <div className="container mx-auto flex bg-white transform">
                     <img
-                        className='object-contain drop-shadow-xl mx-auto'
+                        className='object-contain drop-shadow-xl mx-auto w-fit h-fit'
                         src='../img/icons/user-icon.png'
                         alt='Radio Marca Icon'
                     />
@@ -66,24 +136,25 @@ function NavBar() {
         </div>
 
         <div className="grid grid-cols-8 bg-red-600 items-center justify-center">
-            <div className="flex items-center justify-center font-bold">
+            <button className="flex items-center justify-center font-bold">
                 <span className="text-white">Fútbol</span>
-            </div>
-            <div className="flex items-center justify-center font-bold">
+            </button>
+            <button className="flex items-center justify-center font-bold">
                 <span className="text-white">Motor</span>
-            </div>
-            <div className="flex items-center justify-center font-bold">
+            </button>
+            <button className="flex items-center justify-center font-bold">
                 <span className="text-white">Boxeo</span>
-            </div>
-            <div className="flex items-center justify-center font-bold">
+            </button>
+            <button className="flex items-center justify-center font-bold">
                 <span className="text-white">NFL</span>
-            </div>
-            <div className="flex items-center justify-center font-bold">
+            </button>
+            <button className="flex items-center justify-center font-bold">
                 <span className="text-white">Otros deportes</span>
-            </div>
-            <div className="flex items-center justify-center font-bold">
+            </button>
+            <button
+                className="flex items-center justify-center font-bold">
                 <span className="text-white">Más+</span>
-            </div>
+            </button>
 
             <div className="col-span-2 flex items-center justify-center bg-red-600">
                 <form className="max-w-md mx-auto mt-2 mb-2">   
@@ -100,11 +171,11 @@ function NavBar() {
             </div>
         </div>
 
-        <div className='relative bg-gray lg:block md:hidden sm:hidden xs:hidden'>
+        <div className='relative bg-gray-100 lg:block md:hidden sm:hidden xs:hidden shadow-xl'>
                 <ul className='inline-flex'>
                 {Team_Icons_Data.map(
                       (image, index) =>    
-                    <div className="py-4 xl:scale-125 xl:px-8 lg:px-4 md:px-4 flex flex-shrink" key={index}>
+                    <div className="py-4 xl:scale-125 2xl:px-8 xl:px-4 lg:px-4 md:px-4 flex flex-shrink cursor-pointer" key={index}>
                       <img key={index} 
                       src={`../img/icons/equipos_deportes/small/${image}`} 
                       alt="info">
@@ -113,8 +184,21 @@ function NavBar() {
                 )} 
                 </ul>
         </div>
+        </>
+      ) : (
+        <div className='bg-white relative sticky top-0 z-50 inline-flex h-12 w-full'>
+            <img 
+              className='ml-10 cursor-pointer z-20'
+              src='../img/icons/marca_fondo_blanco.jpg'
+            />
+            <div
+              style={{ width: `${scrollPercentage}%` }}
+              className='z-10 bg-red-600 h-12 w-${scrollPercentage} absolute top-0 left-0'
+            ></div>
+          </div>
+      )}
     </div>
-    )
+  )
 }
 
 export { NavBar }

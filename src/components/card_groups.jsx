@@ -5,10 +5,10 @@ import { Separator2 } from './separators.jsx'
 function FrontPage() {
   return (
     <>
-      <div className='p-x-12 flex justify-center items-center bg-white lg:col-span-3 md:col-span-2 mb-12'>
+      <div className='p-x-12 flex justify-center items-center mb-12'>
           <img
-            className='drop-shadow-xl mx-auto cursor-pointer'
-            src='../img/banners/caliente_horizontal.gif'
+            className='drop-shadow-xl mx-auto w-full cursor-pointer'
+            src='../img/banners/codere_horizontal_estrecho.gif'
           />
       </div>
       <div className='grid lg:grid-cols-3 grid-rows-3 gap-4 md:grid-cols-2 flex-shrink'>
@@ -19,7 +19,7 @@ function FrontPage() {
           <div className='col-span-1 container border-4 border-white lg:block md:hidden sm:hidden'>
             <img 
               className='object-cover h-full w-full drop-shadow-xl cursor-pointer'
-              src='../img/banners/codere_vertical.gif' 
+              src='../img/banners/caliente_vertical.gif' 
               alt='banner' 
             />
           </div>
