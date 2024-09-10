@@ -52,17 +52,32 @@ function CardType1({topic, title, image, author, n_comments}) {
       <div className='row-span-2'>
         <img className='object-fill w-full h-full' src={image} alt={title} />
         <span 
-          className='absolute z-10 top-4 left-4 font-semibold leading-relaxed text-sm bg-red-600 text-white px-2 py-1'>
+          className='lg:block md:block sm:hidden xs:hidden absolute z-10 top-4 left-4 font-semibold leading-relaxed text-sm bg-red-600 text-white px-2 py-1'>
           {topic}
         </span>
       </div>
       <div className='row-span-1'>
         <h4 
-          className='p-2 col-span-2 text-lg text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
+          className='lg:block md:hidden sm:hidden xs:hidden p-2 col-span-2 text-lg text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
+          {title}
+        </h4>
+
+        <h4 
+          className='lg:hidden md:block sm:hidden xs:hidden p-2 col-span-2 text-base text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
+          {title}
+        </h4>
+
+        <h4 
+          className='lg:hidden md:hidden sm:block xs:hidden p-2 col-span-2 text-xl text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
+          {title}
+        </h4>
+
+        <h4 
+          className='lg:hidden md:hidden sm:hidden xs:block p-2 col-span-2 text-xs text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
           {title}
         </h4>
       </div>
-      <div className='absolute z-10 bottom-4 right-4'>
+      <div className='absolute z-10 bottom-4 right-4 lg:block md:block sm:block xs:hidden'>
         <span className='p-2 text-base text-gray-600'>
           {author}
         </span>
@@ -70,6 +85,21 @@ function CardType1({topic, title, image, author, n_comments}) {
           <span>
             <span className='p-2 text-base text-gray-600'>•</span>
             <span className='p-2 text-base text-gray-600'>
+               {n_comments} {(n_comments === 1) ? 'comentario' : 'comentarios'}
+            </span>
+          </span>
+        ) : (<></>)
+        }
+      </div>
+
+      <div className='absolute z-10 bottom-4 right-4 lg:hidden md:hidden sm:hidden xs:block'>
+        <span className='p-2 text-xs text-gray-600'>
+          {author}
+        </span>
+        {(n_comments > 0) ? (
+          <span>
+            <span className='p-2 text-xs text-gray-600'>•</span>
+            <span className='p-2 text-xs text-gray-600'>
                {n_comments} {(n_comments === 1) ? 'comentario' : 'comentarios'}
             </span>
           </span>
