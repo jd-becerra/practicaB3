@@ -103,15 +103,32 @@ function Separator2() {
 // Seccion scrolleable con cartas
 function Separator3() {
   return (
-    <div className='container border-y-4 border-y-gray-300 overflow-x-scroll relative py-4 my-16 scroll-p-4'>
-      <ul className='flex items-center whitespace-wrap gap-2 animate-autoscroll-x'>
-        {c_separator_data.map((card_data, index) => (
-          <li key={index} className='inline-fex'>
-            <CardSeparator {...card_data} />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div className='container border-y-4 border-y-gray-300 overflow-x-scroll relative py-4 my-16 scroll-p-4 xl:block lg:block md:block sm:hidden xs:hidden'>
+        <ul className='flex items-center whitespace-wrap gap-2 animate-autoscroll-x'>
+          {c_separator_data.map((card_data, index) => (
+            <li key={index} className='inline-fex'>
+              <CardSeparator {...card_data} />
+            </li>
+          ))}
+        </ul>
+      </div>
+      {/* Instead of showing, the cards, we'll make a scrollable-y list of text with formta: {topic}: {title} */}
+      <div className='container border-y-4 border-y-gray-300 py-6 my-16 scroll-p-4 hidden xl:hidden lg:hidden md:hidden sm:block xs:block'>
+        <ul className='text-left whitespace-wrap gap-2 overflow-y-scroll h-48 py-2'>
+          {c_separator_data.map((card_data, index) => (
+              <li key={index} className={`cursor-pointer group line-clamp-2 pb-2 border-b-2 border-gray-300 ${index < c_separator_data.length - 1 ? 'mb-4' : ''}`}>
+                <span className='text-red-600 sm:text-lg xs:text-xs font-semibold'>
+                  {card_data.topic}:
+                <span className='text-gray-950 sm:text-lg xs:text-xs px-4 font-normal group-hover:text-gray-600'>
+                  {card_data.title}
+                </span>
+                </span>
+              </li>
+          ))}
+        </ul>
+      </div>
+    </>
   )
 }
 

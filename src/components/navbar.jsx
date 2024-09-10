@@ -27,12 +27,18 @@ function NavBar() {
   const [scrollPercentage, setScrollPercentage] = useState(0)
 
   const [showMenuSm, setShowMenuSm] = useState(false)
+  const [showLangMenu, setShowLangMenu] = useState(false)
+  const [currentLang, setCurrentLang] = useState('MX')
+
+  function changeLang(lang) {
+    setCurrentLang(lang)
+    setShowLangMenu(false)
+  }
 
   useEffect(() => {
 
     const banner = document.getElementById('sticky-navbar')
 
-    const totalHeight = document.body.scrollHeight - globalThis.innerHeight
 
     function handleScroll() {
       const windowHeight = globalThis.innerHeight;
@@ -53,6 +59,7 @@ function NavBar() {
     const handleIntersect = debounce(([event]) => {
       setIsSticky(event.intersectionRatio < 1)
       setShowMenuSm(isSticky)
+      setShowLangMenu(isSticky)
     }, 100)
 
     const observer = new IntersectionObserver(
@@ -111,20 +118,49 @@ function NavBar() {
               </div>
 
               <div className="grid grid-cols-2 col-start-8">
-                  <button className="inline-flex items-center border-2 border-gray-600 shadow-sm bg-white self-start mt-4">
-                      <img
-                          src="../img/icons/svg-5.svg"  
+                  <div className='mt-4 relative'>
+                    <button 
+                        onClick={() => setShowLangMenu(!showLangMenu)}
+                        className="inline-flex items-center border-2 border-gray-600 shadow-sm bg-white self-start xl:p-1 lg:p-0">
+                        <img
+                          src={`../img/icons/lang/${currentLang}.svg`}
                           alt="Mexico Flag"
                           className="w-10 h-7 mr-2"
-                      />
-                      <span className="text-sm font-medium text-gray-800">MX</span>
-                      <img
-                          src='../img/icons/svg-21.svg'
-                          alt='Flechita'
-                          className="ml-1"
-                      />
-                  </button>
-
+                        />
+                        <span className="xl:text-sm lg:text-xs font-medium text-gray-800">{currentLang}</span>
+                        <img
+                            src='../img/icons/svg-21.svg'
+                            alt='Flechita'
+                            className="ml-1"
+                        />
+                    </button>
+                  <div className={`${showLangMenu ? 'block' : 'hidden'} absolute items-center right-0 w-48 bg-white border border-gray-600 shadow-lg mt-2 z-50`}>
+                      <option 
+                        onClick={() => changeLang('MX')}
+                        className={`px-4 py-2 hover:bg-gray-200 flex items-center border-b-2 border-gray-300 ${currentLang === 'MX' ? 'bg-red-600 text-white' : ''}`}>
+                        <img src='../img/icons/lang/MX.svg' alt='Mexico Flag' className="w-10 h-7 mr-2"/>
+                        <span> México </span>
+                      </option>
+                      <option 
+                        onClick={() => changeLang('ES')}
+                        className={`px-4 py-2 hover:bg-gray-200 flex items-center border-b-2 border-gray-300 ${currentLang === 'ES' ? 'bg-red-600 text-white' : ''}`}>
+                        <img src='../img/icons/lang/ES.svg' alt='Spain Flag' className="w-10 h-7 mr-2"/>
+                        <span> España </span>
+                      </option>
+                      <option 
+                        onClick={() => changeLang('EN')}
+                        className={`px-4 py-2 hover:bg-gray-200 flex items-center border-b-2 border-gray-300 ${currentLang === 'EN' ? 'bg-red-600 text-white' : ''}`}>
+                        <img src='../img/icons/lang/EN.svg' alt='World Flag' className="w-10 h-7 mr-2"/>
+                        <span> English </span>
+                      </option>
+                      <option 
+                        onClick={() => changeLang('US')}
+                        className={`px-4 py-2 hover:bg-gray-200 flex items-center border-b-2 border-gray-300 ${currentLang === 'US' ? 'bg-red-600 text-white' : ''}`}>
+                        <img src='../img/icons/lang/US.svg' alt='USA Flag' className="w-10 h-7 mr-2"/>
+                        <span> USA </span>
+                      </option>
+                    </div>
+                  </div>
                   <div className="container mx-auto flex bg-white transform mt-2 cursor-pointer active:scale-75">
                       <img
                           className='object-contain drop-shadow-xl mx-auto w-10 h-10'
