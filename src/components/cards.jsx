@@ -93,7 +93,7 @@ function CardType1({topic, title, image, author, n_comments}) {
         </h4>
 
         <h4 
-          className='lg:hidden md:hidden sm:block xs:hidden p-2 col-span-2 text-xl text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
+          className='lg:hidden md:hidden sm:block xs:hidden p-2 col-span-2 text-2xl text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
           {title}
         </h4>
 
@@ -102,7 +102,7 @@ function CardType1({topic, title, image, author, n_comments}) {
           {title}
         </h4>
       </div>
-      <div className='absolute z-10 bottom-4 right-4 lg:block md:block sm:block xs:hidden'>
+      <div className='absolute z-10 bottom-4 right-4 lg:block md:block sm:hidden xs:hidden'>
         <span className='p-2 text-base text-gray-600'>
           {author}
         </span>
@@ -110,6 +110,21 @@ function CardType1({topic, title, image, author, n_comments}) {
           <span>
             <span className='p-2 text-base text-gray-600'>•</span>
             <span className='p-2 text-base text-gray-600'>
+               {n_comments} {(n_comments === 1) ? 'comentario' : 'comentarios'}
+            </span>
+          </span>
+        ) : (<></>)
+        }
+      </div>
+
+      <div className='absolute z-10 bottom-4 right-4 lg:hidden md:hidden sm:block xs:hidden'>
+        <span className='p-2 text-xl text-gray-600'>
+          {author}
+        </span>
+        {(n_comments > 0) ? (
+          <span>
+            <span className='p-2 text-xl text-gray-600'>•</span>
+            <span className='p-2 text-xl text-gray-600'>
                {n_comments} {(n_comments === 1) ? 'comentario' : 'comentarios'}
             </span>
           </span>
