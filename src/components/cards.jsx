@@ -124,11 +124,32 @@ function CardType2({topic, title, image, author, n_comments}) {
           </span>
         </div>
         <div className='p-6 flex flex-col justify-between flex-grow'>
+
           <h4 
-            className='text-3xl text-black text-left font-bold leading-tight group-hover:text-gray-600 mb-4'>
+            className='lg:block md:block sm:block xs:hidden text-3xl text-black text-left font-bold leading-tight group-hover:text-gray-600 mb-4'>
             {title}
           </h4>
-          <div className='text-lg text-right'>
+
+          <h4 
+            className='lg:hidden md:hidden sm:hidden xs:block text-base text-black text-left font-bold leading-tight group-hover:text-gray-600 mb-4'>
+            {title}
+          </h4>
+
+          <div className='text-lg text-right lg:block md:block sm:block xs:hidden'>
+            <span className='text-gray-600'>
+              {author}
+            </span>
+            {n_comments > 0 && (
+              <>
+                <span className='p-2 text-gray-600'>•</span>
+                <span className='text-gray-600'>
+                  {n_comments} {n_comments === 1 ? 'comentario' : 'comentarios'}
+                </span>
+              </>
+            )}
+          </div>
+
+          <div className='text-xs text-right lg:hidden md:hidden sm:hidden xs:block'>
             <span className='text-gray-600'>
               {author}
             </span>
