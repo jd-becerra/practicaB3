@@ -30,12 +30,22 @@ function CardFrontPageSmall({topic, title, image}) {
         <div className='absolute z-10 bottom-6 left-4 right-4 grid grid-cols-2 gap-y-4'>
           <div className='col-span-1 absolute left-0 -top-10'>
             <span 
-              className='font-semibold leading-relaxed text-sm bg-red-600 text-white px-2 py-1'>
+              className='sm:block xs:hidden font-semibold leading-relaxed text-sm bg-red-600 text-white px-2 py-1'>
+            {topic}
+            </span>
+
+            <span 
+              className='sm:hidden xs:block font-semibold leading-relaxed text-xs bg-red-600 text-white px-2 py-1'>
             {topic}
             </span>
           </div>
           <h4 
-            className='col-span-2 text-lg text-white text-left self-start text-base font-semibold leading-tight group-hover:text-gray-100'>
+            className='sm:block xs:hidden col-span-2 text-base text-white text-left self-start text-base font-semibold leading-tight group-hover:text-gray-100'>
+            {title}
+          </h4>
+
+          <h4 
+            className='sm:hidden xs:block col-span-2 text-xs text-white text-left self-start text-base font-semibold leading-tight group-hover:text-gray-100'>
             {title}
           </h4>
         </div>
