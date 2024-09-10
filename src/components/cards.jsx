@@ -35,7 +35,19 @@ function CardFrontPageSmall({topic, title, image}) {
             </span>
           </div>
           <h4 
-            className='col-span-2 text-sm text-white text-left self-start text-base font-semibold leading-tight group-hover:text-gray-100'>
+            className='xl:block lg:hidden md:hidden sm:hidden  col-span-2 text-xl text-white text-left self-start font-semibold leading-tight group-hover:text-gray-100'>
+            {title}
+          </h4>
+          <h4 
+            className='xl:hidden lg:block md:hidden sm:hidden  col-span-2 text-md text-white text-left self-start font-semibold leading-tight group-hover:text-gray-100'>
+            {title}
+          </h4>
+          <h4 
+            className='xl:hidden lg:hidden md:block sm:hidden col-span-2 text-md text-white text-left self-start font-semibold leading-tight group-hover:text-gray-100'>
+            {title}
+          </h4>
+          <h4 
+            className='xl:hidden lg:hidden md:hidden sm:block col-span-2 text-2xl text-white text-left self-start font-semibold leading-tight group-hover:text-gray-100'>
             {title}
           </h4>
         </div>
@@ -83,7 +95,7 @@ function CardType1({topic, title, image, author, n_comments}) {
       </div>
       <div className='row-span-1'>
       <h4 
-          className='xl:block lg:hidden md:hidden sm:hidden xs:hidden p-2 col-span-2 text-lg text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
+          className='xl:block lg:hidden md:hidden sm:hidden xs:hidden p-2 col-span-2 text-xl text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
           {title}
         </h4>
 
