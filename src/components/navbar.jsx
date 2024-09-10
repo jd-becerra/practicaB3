@@ -111,7 +111,7 @@ function NavBar() {
             </div>
 
             <div className="grid grid-cols-2 col-start-8">
-                <div className="inline-flex items-center border-4 dark:border-gray-300 shadow-sm bg-white">
+                <button className="inline-flex items-center border-2 dark:border-gray-300 shadow-sm bg-white self-start mt-3">
                     <img
                         src="../img/icons/svg-5.svg"  
                         alt="Mexico Flag"
@@ -123,12 +123,12 @@ function NavBar() {
                         alt='Flechita'
                         className="ml-1"
                     />
-                </div>
+                </button>
 
-                <div className="container mx-auto flex bg-white transform">
+                <div className="container mx-auto flex bg-white transform mt-2 cursor-pointer active:scale-75">
                     <img
-                        className='object-contain drop-shadow-xl mx-auto w-fit h-fit'
-                        src='../img/icons/user-icon.png'
+                        className='object-contain drop-shadow-xl mx-auto w-8 h-8'
+                        src='../img/icons/user_red_icon.png'
                         alt='Radio Marca Icon'
                     />
                 </div>
