@@ -28,6 +28,8 @@ function NavBar() {
   
   const [langBtnSmId, setLangBtnSmId] = useState(0)
 
+  const [pageSectionName, setPageSectionName] = useState('PORTADA')
+
   function activateLangMenu() {
     setShowLangMenu(!showLangMenu)
     setSectionActiveId(-1)
@@ -54,12 +56,26 @@ function NavBar() {
       const scrollTop = globalThis.scrollY || document.documentElement.scrollTop;
       const scrollableHeight = documentHeight - windowHeight;
       
+      let percentage = 0
       if (scrollableHeight > 0) {
-        const percentage = Math.round((scrollTop / scrollableHeight) * 100);
-        setScrollPercentage(Math.min(percentage, 100));
-      } else {
-        setScrollPercentage(100);
+        percentage = Math.round((scrollTop / scrollableHeight) * 100)
+      } 
+      
+      percentage = Math.min(percentage, 100)
+      setScrollPercentage(percentage)
+
+      if (percentage < 20) {
+        setPageSectionName('PORTADA')
+      } else if (percentage >= 20 && percentage < 40) {
+        setPageSectionName('FÚTBOL')
+      } else if (percentage >= 40 && percentage < 60) {
+        setPageSectionName('MOTOR')
+      } else if (percentage >= 60 && percentage < 80) {
+        setPageSectionName('NFL')
+      } else if (percentage >= 80) {
+        setPageSectionName('OTROS')
       }
+      console.log(percentage)
     }
 
     globalThis.addEventListener('scroll', () => handleScroll())
@@ -97,7 +113,7 @@ function NavBar() {
                       className='drop-shadow-xl mx-auto h-16 xl:w-96 pl-10 pt-3 pb-3'
                       src='../img/marca-logo-2.png'
                   />
-              </div> 
+              </div>
 
               <div className="grid grid-cols-3 col-start-3 col-span-4 whitespace-nowrap text-xl">
                   <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 pr-16 cursor-pointer">
@@ -272,6 +288,9 @@ function NavBar() {
                 className='ml-20 sm:ml-10 xs:ml-10 cursor-pointer z-20 h-full'
                 src='../img/icons/Marca.png'
               />
+              <div className='ml-10 text-3xl text-gray-950 z-20 h-16 font-bold'>
+                {pageSectionName}
+              </div>
               <div
                 style={{ width: `${scrollPercentage}%` }}
                 className='z-10 bg-red-600 xl:h-10 sm:h-6 w-${scrollPercentage} absolute top-0 left-0'
@@ -391,6 +410,9 @@ function NavBar() {
                 className='ml-10 cursor-pointer z-20'
                 src='../img/icons/marca_fondo_blanco.jpg'
               />
+              <div className='ml-10 mt-1 text-4xl text-gray-950 z-20 h-16 font-extrabold'>
+                {pageSectionName}
+              </div>
               <div
                 style={{ width: `${scrollPercentage}%` }}
                 className='z-10 bg-red-600 h-12 w-${scrollPercentage} absolute top-0 left-0'

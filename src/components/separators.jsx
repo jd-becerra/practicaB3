@@ -10,8 +10,6 @@ function Header() {
   const [indexLo, setIndexLo] = useState(0)
   const [indexHi, setIndexHi] = useState(3)
 
-  console.log(resultado_partidos.length)
-
   useEffect(() => {
     const interval = setInterval(() => {
       setIndexLo(prevIndexLo => (prevIndexLo + 1) % maxIndex);

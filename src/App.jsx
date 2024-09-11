@@ -29,6 +29,7 @@ function App() {
             <CardGroup2 />
             <Separator3 />
             <CardGroup1 />
+            <CardGroup2 />
           </div>
         </div>
         <Footer />
