@@ -81,9 +81,10 @@ function NavBar() {
     globalThis.addEventListener('scroll', () => handleScroll())
 
     const handleIntersect = debounce(([event]) => {
-      setIsSticky(event.intersectionRatio < 1)
-      setShowMenuSm(isSticky)
-      setShowLangMenu(isSticky)
+      const sticky = event.intersectionRatio < 1
+      setIsSticky(sticky)
+      setShowMenuSm(sticky)
+      setShowLangMenu(sticky)
       setSectionActiveId(-1)
     }, 100)
 
