@@ -228,7 +228,7 @@ function NavBar() {
             { sectionActiveId !== -1 ? (
                 <div 
                   onMouseLeave={() => showSection(-1)}
-                  className='absolute bg-gray-800 z-50 xl:p-10 lg:p-4 top-30 text-left w-full'>
+                  className='absolute bg-gray-800 z-50 xl:p-10 lg:p-4 top-30 text-left w-full animate-fade-in'>
                   <ul className='inline-flex gap-10'>
                     {navbar_data[sectionActiveId].categories.map(
                       (section, index) => (

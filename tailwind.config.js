@@ -20,6 +20,7 @@ module.exports = {
         'collapse-left': 'collapseLeft 1s linear forwards',
         'red-white': 'fadeRedWhite 0.5s linear forwards',
         'white-red': 'fadeWhiteRed 0.5s linear forwards',
+        'fade-in': 'fadeIn 0.2s linear forwards',
       },
     },
 
