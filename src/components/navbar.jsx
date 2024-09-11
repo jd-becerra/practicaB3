@@ -25,6 +25,11 @@ function NavBar() {
   const [showLangMenu, setShowLangMenu] = useState(false)
   const [currentLang, setCurrentLang] = useState('MX')
 
+  function activateLangMenu() {
+    setShowLangMenu(!showLangMenu)
+    setSectionActiveId(-1)
+  }
+
   function changeLang(lang) {
     setCurrentLang(lang)
     setShowLangMenu(false)
@@ -32,6 +37,7 @@ function NavBar() {
 
   function showSection(section) {
     setSectionActiveId(section)
+    setShowLangMenu(false)
   }
 
   useEffect(() => {
@@ -121,7 +127,7 @@ function NavBar() {
               <div className="grid grid-cols-2 col-start-8">
                   <div className='mt-4 relative'>
                     <button 
-                        onClick={() => setShowLangMenu(!showLangMenu)}
+                        onClick={() => activateLangMenu()}
                         className="inline-flex items-center border-2 border-gray-300 shadow-sm bg-white self-start xl:p-1 lg:p-0 -ml-6">
                         <img
                           src={`../img/icons/lang/${currentLang}.svg`}
@@ -222,7 +228,7 @@ function NavBar() {
             { sectionActiveId !== -1 ? (
                 <div 
                   onMouseLeave={() => showSection(-1)}
-                  className='absolute bg-gray-800 z-50 p-10 top-30 text-left w-full'>
+                  className='absolute bg-gray-800 z-50 xl:p-10 lg:p-4 top-30 text-left w-full'>
                   <ul className='inline-flex gap-10'>
                     {navbar_data[sectionActiveId].categories.map(
                       (section, index) => (
