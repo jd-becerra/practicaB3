@@ -168,13 +168,13 @@ function NavBar() {
                       </option>
                     </div>
                   </div>
-                  <div className="container mx-auto flex bg-white transform mt-3 cursor-pointer active:scale-75">
+                  <button className="container mx-auto flex bg-white transform mt-3 cursor-pointer active:scale-75">
                       <img
                           className='object-contain drop-shadow-xl mx-auto w-10 h-10'
                           src='../img/icons/user_red_icon.png'
                           alt='Iniciar sesión'
                       />
-                  </div>
+                  </button>
               </div>
           </div>
 
@@ -287,29 +287,36 @@ function NavBar() {
             { !showMenuSm ? (
               <div className='inline-flex'>
                 <button
-                  className='text-white mx-4 self-start h-12 w-12'
+                  className='text-white mx-4 self-start h-12 w-12 sm:block xs:hidden'
                 >
                   <RadioMarcaSvg />
+                </button>
+                <button className="container mx-auto flex transform mt-1 cursor-pointer active:scale-75">
+                  <img
+                    className='object-contain drop-shadow-xl mx-auto w-10 h-10'
+                    src='../img/icons/user_white_icon.png'
+                    alt='Iniciar sesión'
+                  />
                 </button>
                 <button 
                   onClick={() => setShowMenuSm(true)}
                   className='text-white mx-4 mt-3 self-start h-10 w-10'>
                   <svg
                     viewBox='0 0 100 100' width={40} height={40}>
-                    <rect  y={0} width={100} height={20}></rect>
-                    <rect y={30} width={100} height={20}></rect>
-                    <rect y={60} width={100} height={20}></rect>
+                    <rect y={0} width={100} height={10} fill="white"></rect>
+                    <rect y={30} width={100} height={10} fill="white"></rect>
+                    <rect y={60} width={100} height={10} fill="white"></rect>
                   </svg>
-                </button> 
+                </button>
               </div>
               ) : (
                 <button
-                  className='h-16 w-16'
+                  className='h-16 w-16 -mt-2'
                   onClick={() => setShowMenuSm(false)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-fit text-red-300"
-                    strokeWidth={16}
+                    className="h-fit text-red-600"
+                    strokeWidth={12}
                     fill="none"
                     viewBox="0 0 100 100"
                     stroke="currentColor">
@@ -321,6 +328,26 @@ function NavBar() {
           {showMenuSm ? (
             <div className={`sm:w-96 xs:w-56 bg-red-950 absolute right-0 p-8 shadow-xl ${showMenuSm ? 'animate-collapse-left' : '' } `}>
               <div>   
+                <div className='inline-flex text-white'>
+                  <span className='text-left sm:block xs:hidden' >Edición</span>
+                  <button className='text-left inline-flex mr-2 active:border-b-2 active:border-white'>
+                    <img src='../img/icons/lang/MX.svg' alt='Mexico Flag' className="-mt-2 w-10 h-10"/>
+                    <span className='text-left sm:block xs:hidden'>MX</span>
+                  </button>
+                  <button className='text-left inline-flex mr-2'>
+                    <img src='../img/icons/lang/ES.svg' alt='España Flag' className="-mt-2 w-10 h-10"/>
+                    <span className='text-left sm:block xs:hidden'>ES</span>
+                  </button>
+                  <button className='text-left inline-flex mr-2'>
+                    <img src='../img/icons/lang/EN.svg' alt='World Flag' className="-mt-2 w-10 h-10"/>
+                    <span className='text-left sm:block xs:hidden'>EN</span>
+                  </button>
+                  <button className='text-left inline-flex mr-2'>
+                    <img src='../img/icons/lang/US.svg' alt='USA Flag' className="-mt-2 w-10 h-10"/>
+                    <span className='text-left sm:block xs:hidden'>US</span>
+                  </button>
+                </div>
+                
                 <button className="my-4 border-b-4 pb-2 border-white flex text-left sm:text-2xl xs:text-xl font-bold w-full">
                     <span className="ml-4 text-white">Fútbol</span>
                 </button>
