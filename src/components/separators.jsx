@@ -29,16 +29,16 @@ function Header() {
   return (
     <div className='w-full border-y-4 border-y-gray-300 overflow-hidden relative py-2 mb-4'>
       <div className='flex items-center whitespace-nowrap justify-center w-full'>
-        <span className="text-sm text-gray-600 font-bold">RESULTADOS:</span>
+        <span className="xl:text-sm lg:text-xs text-gray-600 font-bold">RESULTADOS:</span>
         <ul className='inline-flex'>
           {resultado_partidos.slice(indexLo, indexHi).map((item, index) => (
             <li key={index}>
-             {(index !== separator_1_data.length - 1) ? (
-                  <span className='text-gray-600 text-sm px-4 border-r-1 border-r-gray-200'>
+             {(index < indexHi - 1) ? (
+                  <span className='text-gray-600 xl:text-sm lg:text-xs xl:px-4 lg:px-3'>
                     {item}
                   </span>
                 ) : (
-                  <span className='text-gray-600 text-sm px-1'>
+                  <span className='text-gray-600 xl:text-sm lg:text-xs px-1'>
                     {item}
                   </span>
                 )
