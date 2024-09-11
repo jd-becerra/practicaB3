@@ -24,6 +24,8 @@ function NavBar() {
   const [showMenuSm, setShowMenuSm] = useState(false)
   const [showLangMenu, setShowLangMenu] = useState(false)
   const [currentLang, setCurrentLang] = useState('MX')
+  
+  const [langBtnSmId, setLangBtnSmId] = useState(0)
 
   function activateLangMenu() {
     setShowLangMenu(!showLangMenu)
@@ -330,19 +332,27 @@ function NavBar() {
               <div>   
                 <div className='inline-flex text-white'>
                   <span className='text-left sm:block xs:hidden' >Edición</span>
-                  <button className='text-left inline-flex mr-2 active:border-b-2 active:border-white'>
+                  <button 
+                    onClick={() => setLangBtnSmId(0)}
+                    className={`text-left inline-flex mr-2 ${langBtnSmId === 0 ? 'border-b-2 border-b-white' : ''}`}>
                     <img src='../img/icons/lang/MX.svg' alt='Mexico Flag' className="-mt-2 w-10 h-10"/>
                     <span className='text-left sm:block xs:hidden'>MX</span>
                   </button>
-                  <button className='text-left inline-flex mr-2'>
+                  <button 
+                    onClick={() => setLangBtnSmId(1)}
+                    className={`text-left inline-flex mr-2 ${langBtnSmId === 1 ? 'border-b-2 border-b-white' : ''}`}>
                     <img src='../img/icons/lang/ES.svg' alt='España Flag' className="-mt-2 w-10 h-10"/>
                     <span className='text-left sm:block xs:hidden'>ES</span>
                   </button>
-                  <button className='text-left inline-flex mr-2'>
+                  <button
+                    onClick={() => setLangBtnSmId(2)}
+                    className={`text-left inline-flex mr-2 ${langBtnSmId === 2 ? 'border-b-2 border-b-white' : ''}`}>
                     <img src='../img/icons/lang/EN.svg' alt='World Flag' className="-mt-2 w-10 h-10"/>
                     <span className='text-left sm:block xs:hidden'>EN</span>
                   </button>
-                  <button className='text-left inline-flex mr-2'>
+                  <button 
+                    onClick={() => setLangBtnSmId(3)}
+                    className={`text-left inline-flex mr-2 ${langBtnSmId === 3 ? 'border-b-2 border-b-white' : ''}`}>
                     <img src='../img/icons/lang/US.svg' alt='USA Flag' className="-mt-2 w-10 h-10"/>
                     <span className='text-left sm:block xs:hidden'>US</span>
                   </button>
