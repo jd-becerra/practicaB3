@@ -3,6 +3,7 @@ import './App.css'
 import { FrontPage, FrontPageSm, FrontPageVr, CardGroup1, CardGroup2 } from './components/card_groups.jsx'
 import { Separator1, Separator3 } from './components/separators.jsx'
 import { NavBar } from './components/navbar.jsx'
+import { SocialMedia } from './components/social_media.jsx'
 import Footer from './components/footer.jsx'
 import ReactDOM from 'react-dom'
 
@@ -31,7 +32,7 @@ function App() {
           </div>
         </div>
         <Footer />
-
+        <SocialMedia/>
       </div>
     </>
   )
