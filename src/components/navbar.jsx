@@ -100,8 +100,7 @@ function NavBar() {
               </div> 
 
               <div className="grid grid-cols-3 col-start-3 col-span-4 whitespace-nowrap text-xl">
-                  <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 border-r-4 border-r-gray-200 pr-16">
-
+                  <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 pr-16 cursor-pointer">
                       <img
                           className='object-contain drop-shadow-xl mx-auto'
                           src='../img/icons/svg-0.svg'
@@ -110,7 +109,7 @@ function NavBar() {
                       <span className="ml-2 col-span-2 font-bold text-black">Radio MARCA</span>
                   </div>
 
-                  <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 border-r-4 border-r-gray-2000 pr-16">
+                  <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 pr-16 cursor-pointer">
                       <img
                           className='object-contain drop-shadow-xl mx-auto'
                           src='../img/icons/svg-3.svg'
@@ -119,7 +118,7 @@ function NavBar() {
                       <span className="ml-2 col-span-2 font-bold text-black">Cuidate Plus</span>
                   </div>
 
-                  <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 pr-16">
+                  <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 pr-16 cursor-pointer">
                       <img
                           className='object-contain drop-shadow-xl mx-auto'
                           src='../img/icons/svg-4.svg'
