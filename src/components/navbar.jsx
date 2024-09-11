@@ -225,7 +225,7 @@ function NavBar() {
             { sectionActiveId !== -1 ? (
                 <div 
                   onMouseLeave={() => showSection(-1)}
-                  className='bg-gray-800 z-50 top-16 w-full'>
+                  className='absolute bg-gray-800 z-50 top-30 w-full'>
                   <ul className='inline-flex'>
                     {navbar_data[sectionActiveId].categories.map(
                       (section, index) => (
@@ -245,7 +245,7 @@ function NavBar() {
                   <ul className='inline-flex'>
                   {Team_Icons_Data.map(
                         (image, index) =>    
-                      <div className="py-4 2xl:px-7 xl:px-4 lg:px-4 md:px-4 flex flex-shrink cursor-pointer" key={index}>
+                      <div className="py-4 2xl:px-6 xl:px-4 lg:px-4 md:px-4 flex flex-shrink cursor-pointer" key={index}>
                         <img key={index} 
                         src={`../img/icons/equipos_deportes/small/${image}`} 
                         alt="info">
