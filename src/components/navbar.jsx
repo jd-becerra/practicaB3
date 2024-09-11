@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Team_Icons_Data } from "../data/Team_Icons_data.jsx"
 import { RadioMarcaSvg } from '../components/navbar_icons.jsx'
-import navbar_data from '../data/navbar_data.jsx'
+import {navbar_data} from '../data/navbar_data.jsx'
+import { Header } from '../components/separators.jsx'
 
 function debounce(func, delay) {
   let timeout;
@@ -88,7 +89,9 @@ function NavBar() {
       <div className='lg:block md:hidden sm:hidden xs:hidden'>
         { !isSticky ? (
           <>
-          <div className='grid grid-cols-8 bg-white'>
+          <Header />
+          <div 
+            className='grid grid-cols-8 bg-white'>
               <div className='bg-white items-center'>
                   <img
                       className='drop-shadow-xl mx-auto h-16 xl:w-96 pl-10 pt-3 pb-3'
@@ -189,6 +192,7 @@ function NavBar() {
               </button>
               <button 
                 onMouseEnter={() => showSection(1)}
+                onMouseLeave={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Motor</span>
               </button>
@@ -199,11 +203,13 @@ function NavBar() {
               </button>
               <button 
                 onMouseEnter={() => showSection(2)}
+                onMouseLeave={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">NFL</span>
               </button>
               <button 
                 onMouseEnter={() => showSection(3)}  
+                onMouseLeave={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Otros deportes</span>
               </button>

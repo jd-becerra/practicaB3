@@ -2,6 +2,55 @@ import { useEffect, useState } from 'react'
 import { CardSeparator } from './cards.jsx'
 import { separator_1_data } from '../data/separators_data.jsx'
 import { c_separator_data } from '../data/cards_data.jsx'
+import { resultado_partidos } from '../data/navbar_data.jsx'
+
+function Header() {
+  // use timeout to change the index of the array
+  const maxIndex = resultado_partidos.length - 1
+  const [indexLo, setIndexLo] = useState(0)
+  const [indexHi, setIndexHi] = useState(3)
+
+  console.log(resultado_partidos.length)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndexLo(prevIndexLo => (prevIndexLo + 1) % maxIndex);
+      setIndexHi(prevIndexHi => (prevIndexHi + 1) % maxIndex);
+
+      if (indexHi === maxIndex - 1) {
+        setIndexLo(0);
+        setIndexHi(3);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [maxIndex, indexHi]); // Add dependencies here
+
+  return (
+    <div className='w-full border-y-4 border-y-gray-300 overflow-hidden relative py-2 mb-4'>
+      <div className='flex items-center whitespace-nowrap'>
+        <span className="text-sm text-gray-600 font-bold">RESULTADOS:</span>
+        <ul className='inline-flex'>
+          {resultado_partidos.slice(indexLo, indexHi).map((item, index) => (
+            <li key={index}>
+             {(index !== separator_1_data.length - 1) ? (
+                  <span className='text-gray-600 text-sm px-4 border-r-1 border-r-gray-200'>
+                    {item}
+                  </span>
+                ) : (
+                  <span className='text-gray-600 text-sm px-1'>
+                    {item}
+                  </span>
+                )
+              }
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className='absolute right-0 h-full w-2/12 bg-gradient-to-l self-center from-gray-100 to-transparent'></div>
+    </div>
+  )
+}
 
 function Separator1() {
   return (
@@ -132,4 +181,4 @@ function Separator3() {
   )
 }
 
-export { Separator1, Separator2, Separator3 }
+export { Header, Separator1, Separator2, Separator3 }
