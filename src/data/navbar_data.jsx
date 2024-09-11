@@ -73,10 +73,6 @@ const navbar_data = [
         title: 'Juegos Centroamericanos',
         subcategories: []
       },
-      {
-        title: 'Juegos Panamericanos',
-        subcategories: []
-      }
     ]
   }, 
   {

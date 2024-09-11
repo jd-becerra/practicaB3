@@ -185,6 +185,7 @@ function NavBar() {
                   <span className="text-white">Motor</span>
               </button>
               <button 
+                onMouseEnter={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Boxeo</span>
               </button>
@@ -221,12 +222,12 @@ function NavBar() {
             { sectionActiveId !== -1 ? (
                 <div 
                   onMouseLeave={() => showSection(-1)}
-                  className='absolute bg-gray-800 z-50 top-30 w-full'>
-                  <ul className='inline-flex '>
+                  className='absolute bg-gray-800 z-50 p-10 top-30 text-left w-full'>
+                  <ul className='inline-flex gap-10'>
                     {navbar_data[sectionActiveId].categories.map(
                       (section, index) => (
-                        <ul key={index} className='mx-4'>
-                          <button className='text-white'>{section.title}</button>
+                        <ul key={index} className='mx-4 text-left'>
+                          <button className='text-white font-bold'>{section.title}</button>
                           { section.subcategories.map(
                             (subcategory, index) => (
                               <li key={index} className='text-white'>{subcategory}</li>
