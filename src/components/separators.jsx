@@ -28,7 +28,7 @@ function Header() {
 
   return (
     <div className='w-full border-y-4 border-y-gray-300 overflow-hidden relative py-2 mb-4'>
-      <div className='flex items-center whitespace-nowrap'>
+      <div className='flex items-center whitespace-nowrap justify-center w-full'>
         <span className="text-sm text-gray-600 font-bold">RESULTADOS:</span>
         <ul className='inline-flex'>
           {resultado_partidos.slice(indexLo, indexHi).map((item, index) => (
