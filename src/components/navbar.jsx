@@ -175,11 +175,13 @@ function NavBar() {
           <div className="grid grid-cols-8 bg-red-600 items-center justify-center text-lg h-16">
               <button 
                 onMouseEnter={() => showSection(0)}
+                onMouseLeave={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full border-red-300 hover:bg-gray-800">
                   <span className="text-white">Fútbol</span>
               </button>
               <button 
                 onMouseEnter={() => showSection(1)}
+                onMouseLeave={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Motor</span>
               </button>
@@ -190,16 +192,19 @@ function NavBar() {
               </button>
               <button 
                 onMouseEnter={() => showSection(2)}
+                onMouseLeave={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">NFL</span>
               </button>
               <button 
                 onMouseEnter={() => showSection(3)}  
+                onMouseLeave={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Otros deportes</span>
               </button>
               <button
                 onMouseEnter={() => showSection(4)}
+                onMouseLeave={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Más+</span>
               </button>
