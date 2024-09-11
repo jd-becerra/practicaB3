@@ -181,24 +181,20 @@ function NavBar() {
               </button>
               <button 
                 onMouseEnter={() => showSection(1)}
-                onMouseLeave={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Motor</span>
               </button>
               <button 
-                onMouseEnter={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Boxeo</span>
               </button>
               <button 
                 onMouseEnter={() => showSection(2)}
-                onMouseLeave={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">NFL</span>
               </button>
               <button 
                 onMouseEnter={() => showSection(3)}  
-                onMouseLeave={() => showSection(-1)}
                 className="flex items-center justify-center font-bold h-full hover:bg-gray-800">
                   <span className="text-white">Otros deportes</span>
               </button>
@@ -226,7 +222,7 @@ function NavBar() {
                 <div 
                   onMouseLeave={() => showSection(-1)}
                   className='absolute bg-gray-800 z-50 top-30 w-full'>
-                  <ul className='inline-flex'>
+                  <ul className='inline-flex '>
                     {navbar_data[sectionActiveId].categories.map(
                       (section, index) => (
                         <ul key={index} className='mx-4'>
@@ -254,8 +250,7 @@ function NavBar() {
                   )} 
                   </ul>
               </div>
-              )
-            }
+              )}
           </>
         ) : (
           <div className='bg-white relative sticky top-0 z-50 inline-flex xl:h-10 sm:h-6 w-full'>
