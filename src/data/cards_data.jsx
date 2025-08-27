@@ -21,6 +21,12 @@ const c_fp_data = [
     title: 'México vs Colombia Femenil Sub-20: dónde ver en vivo, horario y transmisión Copa Mundial de Fútbol Femenina Sub-20',
     image: '/img/cards/card_t1_3.jpg',
   },
+  {
+    topic: 'TELEVISÓN MX',
+    title: 'Perro Bermúdez insulta a usuario que difundió muerte falsa de André Marín',
+    image: '/img/cards/card_t2_2.webp',
+  },
+
 ]
 
 
@@ -68,6 +74,20 @@ const c_1_data = [
     author: 'ISRAEL M. ZÚÑIGA',
     n_comments: 0,
   },
+    {
+    topic: 'F1',
+    title: 'Checo Pérez esquiva el fracaso en la Fórmula 1 sin importar el resultado con Red Bull',
+    image: '/img/cards/card_t3_3.webp',
+    author: 'ÁNGEL HÚGUEZ',
+    n_comments: 0,
+  },
+  {
+    topic: 'MLB',
+    title: 'Shohei Ohtani vuelve a pegar HR con Dodgers y se acerca a otro récord de MLB',
+    image: '/img/cards/card_t3_4.webp',
+    author: 'LW',
+    n_comments: 0,
+  },
 ]
 
 /* Las cartas tipo 2 son iguales a las tipo 1, pero son cinco en vez de seis y una tiene una imagen mas grande */
@@ -109,6 +129,13 @@ const c_2_data = [
     image: '/img/cards/card_t3_5.webp',
     author: 'LW',
     n_comments: 200,
+  },
+    {
+    topic: 'CELEBRITIES',
+    title: 'Adrián Marcelo apunta a ser directivo de un equipo de fútbol tras salida de La Casa de los Famosos',
+    image: '/img/cards/card_t2_5.webp',
+    author: 'LW',
+    n_comments: 50,
   },
 ]
 

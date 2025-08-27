@@ -1,18 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Team_Icons_Data } from "../data/Team_Icons_data.jsx"
 import { RadioMarcaSvg } from '../components/navbar_icons.jsx'
 import {navbar_data} from '../data/navbar_data.jsx'
 import { Header } from '../components/separators.jsx'
-
-function debounce(func, delay) {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
-}
 
 function NavBar() {
   // toggles para las secciones de la navbar
@@ -46,69 +36,71 @@ function NavBar() {
   }
 
   useEffect(() => {
-
-    const banner = document.getElementById('sticky-navbar')
-
-
+    let ticking = false;
+    
     function handleScroll() {
-      const windowHeight = globalThis.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollTop = globalThis.scrollY || document.documentElement.scrollTop;
-      const scrollableHeight = documentHeight - windowHeight;
-      
-      let percentage = 0
-      if (scrollableHeight > 0) {
-        percentage = Math.round((scrollTop / scrollableHeight) * 100)
-      } 
-      
-      percentage = Math.min(percentage, 100)
-      setScrollPercentage(percentage)
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const windowHeight = globalThis.innerHeight;
+          const documentHeight = document.documentElement.scrollHeight;
+          const scrollTop = globalThis.scrollY || document.documentElement.scrollTop;
+          const scrollableHeight = documentHeight - windowHeight;
+          
+          // Determine if navbar should be sticky based on scroll position
+          const shouldBeSticky = scrollTop > 100; // Trigger sticky after scrolling 100px
+          setIsSticky(shouldBeSticky);
+          
+          // Reset mobile menu states when switching between sticky/non-sticky
+          if (shouldBeSticky) {
+            setShowMenuSm(false);
+            setShowLangMenu(false);
+            setSectionActiveId(-1);
+          }
+          
+          let percentage = 0
+          if (scrollableHeight > 0) {
+            percentage = Math.round((scrollTop / scrollableHeight) * 100)
+          } 
+          
+          percentage = Math.min(percentage, 100)
+          setScrollPercentage(percentage)
 
-      if (percentage < 20) {
-        setPageSectionName('PORTADA')
-      } else if (percentage >= 20 && percentage < 40) {
-        setPageSectionName('FÚTBOL')
-      } else if (percentage >= 40 && percentage < 60) {
-        setPageSectionName('MOTOR')
-      } else if (percentage >= 60 && percentage < 80) {
-        setPageSectionName('NFL')
-      } else if (percentage >= 80) {
-        setPageSectionName('OTROS')
+          if (percentage < 0) {
+            setPageSectionName('PORTADA')
+          } else if (percentage >= 20 && percentage < 40) {
+            setPageSectionName('FÚTBOL')
+          } else if (percentage >= 40 && percentage < 60) {
+            setPageSectionName('MOTOR')
+          } else if (percentage >= 60 && percentage < 80) {
+            setPageSectionName('NFL')
+          } else if (percentage >= 80) {
+            setPageSectionName('OTROS')
+          }
+          
+          ticking = false;
+        });
+        ticking = true;
       }
-      console.log(percentage)
     }
 
-    globalThis.addEventListener('scroll', () => handleScroll())
+    globalThis.addEventListener('scroll', handleScroll, { passive: true })
 
-    const handleIntersect = debounce(([event]) => {
-      const sticky = event.intersectionRatio < 1
-      setIsSticky(sticky)
-      setShowMenuSm(sticky)
-      setShowLangMenu(sticky)
-      setSectionActiveId(-1)
-    }, 100)
-
-    const observer = new IntersectionObserver(
-      ([event]) =>  {
-        handleIntersect([event])
-      },
-      { threshold: [1], rootMargin: '-30px 0px 600px 0px' }
-    )
-    observer.observe(banner)
-
-    return () => observer.disconnect()
+    // Clean up event listener
+    return () => {
+      globalThis.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
   return (
     <div 
       id='sticky-navbar'
-      className="mb-12 sticky top-0 z-50 -mx-4">
+      className={`mb-4 top-0 z-50 ${isSticky ? 'sticky' : ''}`}>
       <div className='lg:block md:hidden sm:hidden xs:hidden'>
         { !isSticky ? (
           <>
-          <Header />
+
           <div 
-            className='grid grid-cols-8 bg-white'>
+            className='grid grid-cols-8 bg-white rounded-lg'>
               <div className='bg-white items-center'>
                   <img
                       className='drop-shadow-xl mx-auto h-16 xl:w-96 pl-10 pt-3 pb-3'
@@ -199,11 +191,11 @@ function NavBar() {
               </div>
           </div>
 
-          <div className="grid grid-cols-8 bg-red-600 items-center justify-center text-lg h-16">
+          <div className="grid grid-cols-8 bg-red-600 w-full text-lg h-16">
               <button 
                 onMouseEnter={() => showSection(0)}
                 onMouseLeave={() => showSection(-1)}
-                className="flex items-center justify-center font-bold h-full border-red-300 hover:bg-gray-800">
+                className="flex items-center justify-center font-bold h-full border-red-300 hover:bg-gray-800 w-full">
                   <span className="text-white">Fútbol</span>
               </button>
               <button 
@@ -236,19 +228,37 @@ function NavBar() {
                   <span className="text-white">Más+</span>
               </button>
 
-              <div className="col-span-2 flex items-center justify-center h-4 border-red-600">
-                  <form className="max-w-md mx-auto xl:w-72 lg:w-56">   
-                      <label htmlFor="default-search" className="text-xl font-medium text-red-600 sr-only">Search</label>
-                      <div className="relative">
-                          <button className="absolute inset-y-0 right-0 flex items-center border ps-4 pe-4 border-red-600">
-                              <svg className="w-4 h-4 text-red-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                              </svg> 
-                          </button>
-                      </div>
-                  </form>
+              <div className="col-span-2 flex items-center justify-center h-16 border-red-600">
+                    <input
+                      type="search"
+                      id="default-search"
+                      className="block w-3/4 p-2 ps-4 text-sm text-gray-900 border  rounded-lg focus:ring-red-600 focus:border-red-600 bg-white"
+                      placeholder="Buscar..."
+                    />
+                    <button
+                      type="submit"
+                      className='ml-4'
+                    >
+                      <svg
+                        className="w-4 h-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 20 20"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="4"
+                          color='white'
+                          d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                        />
+                      </svg>
+                    </button>
               </div>
+          
           </div>
+
             { sectionActiveId !== -1 ? (
                 <div 
                   onMouseLeave={() => showSection(-1)}
@@ -268,8 +278,8 @@ function NavBar() {
                   </ul>
                 </div>
               ) : (
-                <div className='relative bg-gray-100 lg:block md:hidden sm:hidden xs:hidden shadow-xl'>
-                  <ul className='inline-flex'>
+                <div className='relative bg-gray-100 lg:block md:hidden items-center sm:hidden xs:hidden shadow-xl'>
+                  <ul className='inline-flex place-content-evenly w-full'>
                   {Team_Icons_Data.map(
                         (image, index) =>    
                       <div className="py-4 2xl:px-6 xl:px-4 lg:px-4 md:px-4 flex flex-shrink cursor-pointer" key={index}>
@@ -300,7 +310,7 @@ function NavBar() {
         )}
       </div>
 
-      <div className='lg:hidden md:block sm:block xs:block -mb-4'>
+      <div className='lg:hidden md:block sm:block xs:block mb-4'>
         { !isSticky ? (
         <div className='sticky top-0 z-50'>
           <div className={`relative h-16 w-full ${showMenuSm ? 'animate-red-white' : 'animate-white-red'}`}>

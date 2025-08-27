@@ -11,16 +11,15 @@ function Footer() {
       <>
         { /* footer para resoluciones grandes y extragrande */ }
         <footer className="bg-white w-full lg:block md:block sm:hidden xs:hidden">
-          <div className='xl:container xl:mx-auto'>
-            <div className='px-16 py-8'>
-              <h6 
-                className="text-center font-bold text-gray-800 text-lg pb-4 mx-auto border-b-4 border-b-gray-300">
-            
+          <div className='xl:mx-auto'>
+            <div className='py-8'>
+              <h6 className="text-center font-bold text-gray-800 text-lg pb-4 mx-auto">
                 Otras webs de Unidad Editorial 
               </h6>
-              <div className="grid grid-cols-4 gap-4 p-4 lg:mx-16 md:mx-4">
+              <div className='border-2 border-gray-300'></div>
+              <div className="px-16 grid grid-cols-4 gap-4 py-6 lg:mx-16 md:mx-4 justify-center">
                 {footer_links.map((link_group, index) => (
-                  <div key={index} className='text-left text-base'>
+                  <div key={index} className='text-left text-base mx-auto'>
                     <h6 className="font-bold text-gray-800 mb-4">{link_group.title}</h6>
                     <ul className="text-gray-600">
                       {link_group.links.map((link, index) => (
@@ -30,22 +29,20 @@ function Footer() {
                   </div>
                 ))}
               </div>
+              <div className='border-2 border-gray-300'></div>
               <div className="text-center text-gray-800 text-sm py-4">
-                <p className='text-base font-bold border-t-4 border-t-gray-300 pt-8'>
+                <p className='text-base font-bold pt-8'>
                   {footer_copyright.header}
                 </p>
                 <div className='xl:inline-block lg:mt-2 md:mt-4 grid lg:grid-cols-2 md:grid-cols-2'>
                   {footer_copyright.links.map((link, index) => (
                     <a key={index} className='cursor-pointer hover:text-red-600 px-4 lg:mt-2'>{link}</a>
-                  ))
-
-                  }
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </footer>
-
         {/* footer for small and extra small resolutions (collapsible sections) */ }
         <footer className="bg-white w-full lg:hidden md:hidden sm:block xs:block">
           <div className="xl:container xl:mx-auto">

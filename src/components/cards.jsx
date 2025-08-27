@@ -35,7 +35,7 @@ function CardFrontPageSmall({topic, title, image}) {
             </span>
           </div>
           <h4 
-            className='xl:block lg:hidden md:hidden sm:hidden  col-span-2 text-xl text-white text-left self-start font-semibold leading-tight group-hover:text-gray-100'>
+            className='xl:block lg:hidden md:hidden sm:hidden  col-span-2 xl:text-lg lg:text-sm md:text-xs text-white text-left self-start font-semibold leading-tight group-hover:text-gray-100'>
             {title}
           </h4>
           <h4 
@@ -95,12 +95,12 @@ function CardType1({topic, title, image, author, n_comments}) {
       </div>
       <div className='row-span-1'>
       <h4 
-          className='xl:block lg:hidden md:hidden sm:hidden xs:hidden p-2 col-span-2 text-xl text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
+          className='xl:block lg:hidden md:hidden sm:hidden xs:hidden p-2 col-span-2 text-md text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
           {title}
         </h4>
 
         <h4 
-          className='xl:hidden lg:block md:hidden sm:hidden xs:hidden p-2 col-span-2 text-base text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
+          className='xl:hidden lg:block md:hidden sm:hidden xs:hidden p-2 col-span-2 text-sm text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
           {title}
         </h4>
 
@@ -115,7 +115,7 @@ function CardType1({topic, title, image, author, n_comments}) {
         </h4>
 
         <h4 
-          className='xl:hidden lg:hidden md:hidden sm:hidden xs:block p-2 col-span-2 text-xs text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
+          className='xl:hidden lg:hidden md:hidden sm:hidden xs:block p-2 col-span-2 text-xl text-black text-left self-start text-base font-semibold leading-tight group-hover:text-gray-600'>
           {title}
         </h4>
       </div>
