@@ -104,7 +104,7 @@ function NavBar() {
               <div className='bg-white items-center'>
                   <img
                       className='drop-shadow-xl mx-auto h-16 xl:w-96 pl-10 pt-3 pb-3'
-                      src='../img/marca-logo-2.png'
+                      src='img/marca-logo-2.png'
                   />
               </div>
 
@@ -112,7 +112,7 @@ function NavBar() {
                   <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 pr-16 cursor-pointer">
                       <img
                           className='object-contain drop-shadow-xl mx-auto'
-                          src='../img/icons/svg-0.svg'
+                          src='img/icons/svg-0.svg'
                           alt='Radio Marca Icon'
                       />
                       <span className="ml-2 col-span-2 font-bold text-black">Radio MARCA</span>
@@ -121,7 +121,7 @@ function NavBar() {
                   <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 pr-16 cursor-pointer">
                       <img
                           className='object-contain drop-shadow-xl mx-auto'
-                          src='../img/icons/svg-3.svg'
+                          src='img/icons/svg-3.svg'
                           alt='CuidatePlus Icon'
                       />
                       <span className="ml-2 col-span-2 font-bold text-black">Cuidate Plus</span>
@@ -130,7 +130,7 @@ function NavBar() {
                   <div className="grid grid-cols-3 container mx-auto bg-white items-center ml-2 transform scale-75 pr-16 cursor-pointer">
                       <img
                           className='object-contain drop-shadow-xl mx-auto'
-                          src='../img/icons/svg-4.svg'
+                          src='img/icons/svg-4.svg'
                           alt='Lo + trending Icon'
                       />
                       <span className="ml-2 col-span-2 font-bold text-black">Lo + trending</span>
@@ -143,13 +143,13 @@ function NavBar() {
                         onClick={() => activateLangMenu()}
                         className="inline-flex items-center border-2 border-gray-300 shadow-sm bg-white self-start xl:p-1 lg:p-0 -ml-6">
                         <img
-                          src={`../img/icons/lang/${currentLang}.svg`}
+                          src={`img/icons/lang/${currentLang}.svg`}
                           alt="Mexico Flag"
                           className="w-10 h-7 mr-2"
                         />
                         <span className="xl:text-sm lg:text-xs font-medium text-gray-800">{currentLang}</span>
                         <img
-                            src='../img/icons/svg-21.svg'
+                            src='img/icons/svg-21.svg'
                             alt='Flechita'
                             className="ml-1"
                         />
@@ -158,25 +158,25 @@ function NavBar() {
                       <option 
                         onClick={() => changeLang('MX')}
                         className={`px-4 py-2 flex items-center border-b-2 border-gray-300 cursor-pointer ${currentLang === 'MX' ? 'bg-red-600 text-white' : 'hover:bg-gray-200'}`}>
-                        <img src='../img/icons/lang/MX.svg' alt='Mexico Flag' className="w-10 h-7 mr-2"/>
+                        <img src='img/icons/lang/MX.svg' alt='Mexico Flag' className="w-10 h-7 mr-2"/>
                         <span> México </span>
                       </option>
                       <option 
                         onClick={() => changeLang('ES')}
                         className={`px-4 py-2 flex items-center border-b-2 border-gray-300 cursor-pointer ${currentLang === 'ES' ? 'bg-red-600 text-white' : 'hover:bg-gray-200'}`}>
-                        <img src='../img/icons/lang/ES.svg' alt='Spain Flag' className="w-10 h-7 mr-2"/>
+                        <img src='img/icons/lang/ES.svg' alt='Spain Flag' className="w-10 h-7 mr-2"/>
                         <span> España </span>
                       </option>
                       <option 
                         onClick={() => changeLang('EN')}
                         className={`px-4 py-2 flex items-center border-b-2 border-gray-300 cursor-pointer ${currentLang === 'EN' ? 'bg-red-600 text-white' : 'hover:bg-gray-200'}`}>
-                        <img src='../img/icons/lang/EN.svg' alt='World Flag' className="w-10 h-7 mr-2"/>
+                        <img src='img/icons/lang/EN.svg' alt='World Flag' className="w-10 h-7 mr-2"/>
                         <span> English </span>
                       </option>
                       <option 
                         onClick={() => changeLang('US')}
                         className={`px-4 py-2 flex items-center cursor-pointer ${currentLang === 'US' ? 'bg-red-600 text-white' : 'hover:bg-gray-200'}`}>
-                        <img src='../img/icons/lang/US.svg' alt='USA Flag' className="w-10 h-7 mr-2"/>
+                        <img src='img/icons/lang/US.svg' alt='USA Flag' className="w-10 h-7 mr-2"/>
                         <span> USA </span>
                       </option>
                     </div>
@@ -184,7 +184,7 @@ function NavBar() {
                   <button className="container mx-auto flex bg-white transform mt-3 cursor-pointer active:scale-75">
                       <img
                           className='object-contain drop-shadow-xl mx-auto w-10 h-10'
-                          src='../img/icons/user_red_icon.png'
+                          src='img/icons/user_red_icon.png'
                           alt='Iniciar sesión'
                       />
                   </button>
@@ -284,7 +284,7 @@ function NavBar() {
                         (image, index) =>    
                       <div className="py-4 2xl:px-6 xl:px-4 lg:px-4 md:px-4 flex flex-shrink cursor-pointer" key={index}>
                         <img key={index} 
-                        src={`../img/icons/equipos_deportes/small/${image}`} 
+                        src={`img/icons/equipos_deportes/small/${image}`} 
                         alt="info">
                         </img>
                       </div>
@@ -297,7 +297,7 @@ function NavBar() {
           <div className='bg-white relative sticky top-0 z-50 inline-flex xl:h-10 sm:h-6 w-full'>
               <img 
                 className='ml-20 sm:ml-10 xs:ml-10 cursor-pointer z-20 h-full'
-                src='../img/icons/Marca.png'
+                src='img/icons/Marca.png'
               />
               <div className='ml-10 text-3xl text-gray-950 z-20 h-16 font-bold'>
                 {pageSectionName}
@@ -317,7 +317,7 @@ function NavBar() {
           <button className='absolute left-10 z-20 h-16'>
             <img 
               className='w-16'
-              src='../img/icons/marca_fondo_blanco.jpg'
+              src='img/icons/marca_fondo_blanco.jpg'
             />
           </button>
           <div className='absolute right-0 mt-2'>
@@ -331,7 +331,7 @@ function NavBar() {
                 <button className="container mx-auto flex transform mt-1 cursor-pointer active:scale-75">
                   <img
                     className='object-contain drop-shadow-xl mx-auto w-10 h-10'
-                    src='../img/icons/user_white_icon.png'
+                    src='img/icons/user_white_icon.png'
                     alt='Iniciar sesión'
                   />
                 </button>
@@ -370,25 +370,25 @@ function NavBar() {
                   <button 
                     onClick={() => setLangBtnSmId(0)}
                     className={`text-left inline-flex mr-2 ${langBtnSmId === 0 ? 'border-b-2 border-b-white' : ''}`}>
-                    <img src='../img/icons/lang/MX.svg' alt='Mexico Flag' className="-mt-2 w-10 h-10"/>
+                    <img src='img/icons/lang/MX.svg' alt='Mexico Flag' className="-mt-2 w-10 h-10"/>
                     <span className='text-left sm:block xs:hidden'>MX</span>
                   </button>
                   <button 
                     onClick={() => setLangBtnSmId(1)}
                     className={`text-left inline-flex mr-2 ${langBtnSmId === 1 ? 'border-b-2 border-b-white' : ''}`}>
-                    <img src='../img/icons/lang/ES.svg' alt='España Flag' className="-mt-2 w-10 h-10"/>
+                    <img src='img/icons/lang/ES.svg' alt='España Flag' className="-mt-2 w-10 h-10"/>
                     <span className='text-left sm:block xs:hidden'>ES</span>
                   </button>
                   <button
                     onClick={() => setLangBtnSmId(2)}
                     className={`text-left inline-flex mr-2 ${langBtnSmId === 2 ? 'border-b-2 border-b-white' : ''}`}>
-                    <img src='../img/icons/lang/EN.svg' alt='World Flag' className="-mt-2 w-10 h-10"/>
+                    <img src='img/icons/lang/EN.svg' alt='World Flag' className="-mt-2 w-10 h-10"/>
                     <span className='text-left sm:block xs:hidden'>EN</span>
                   </button>
                   <button 
                     onClick={() => setLangBtnSmId(3)}
                     className={`text-left inline-flex mr-2 ${langBtnSmId === 3 ? 'border-b-2 border-b-white' : ''}`}>
-                    <img src='../img/icons/lang/US.svg' alt='USA Flag' className="-mt-2 w-10 h-10"/>
+                    <img src='img/icons/lang/US.svg' alt='USA Flag' className="-mt-2 w-10 h-10"/>
                     <span className='text-left sm:block xs:hidden'>US</span>
                   </button>
                 </div>
@@ -419,7 +419,7 @@ function NavBar() {
           <div className='bg-white relative sticky top-0 z-50 inline-flex h-12 w-full'>
               <img 
                 className='ml-10 cursor-pointer z-20'
-                src='../img/icons/marca_fondo_blanco.jpg'
+                src='img/icons/marca_fondo_blanco.jpg'
               />
               <div className='ml-10 mt-1 text-4xl text-gray-950 z-20 h-16 font-extrabold'>
                 {pageSectionName}

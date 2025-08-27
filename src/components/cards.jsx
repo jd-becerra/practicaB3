@@ -278,7 +278,7 @@ function CardSeparator({topic, title, image, n_comments}) {
             <span className='p-2 text-base text-right font-bold text-gray-100'>
               <img
                 className='inline-block scale-90 mr-1'
-                src='../img/icons/chat_bubble.svg' alt='icono de comentarios' 
+                src='img/icons/chat_bubble.svg' alt='icono de comentarios' 
               /> 
               {n_comments}
             </span>

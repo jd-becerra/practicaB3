@@ -14,7 +14,7 @@ function SocialMedia() {
                         <div className="py-4 2xl:px-1 xl:px-4 lg:px-4 md:px-4 h-16 w-16 flex flex-shrink cursor-pointer justify-center items-center" key={index}>
                             <img 
                                 className="h-8 w-8"
-                                src={`../img/icons/${image}`} 
+                                src={`img/icons/${image}`} 
                                 alt="info"
                             />
                         </div>
@@ -29,7 +29,7 @@ function SocialMedia() {
                     (image, index) => 
                     <div className="py-2 px-2 h-12 w-12 flex flex-shrink cursor-pointer justify-center items-center" key={index}>
                         <img 
-                            src={`../img/icons/${image}`} 
+                            src={`img/icons/${image}`} 
                             alt="info"
                         />
                     </div>

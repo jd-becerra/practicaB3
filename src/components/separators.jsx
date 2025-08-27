@@ -25,21 +25,20 @@ function Header() {
 
   return (
     <div className='w-full border-y-4 border-y-gray-300 overflow-hidden flex justify-center items-center relative py-2 my-12'>
-      <div className='container  xl:text-sm lg:text-1 md:text-0.5 whitespace-nowrap w-full'>
-        <span className=" text-gray-600 font-bold">RESULTADOS:</span>
-        <ul className='inline-flex'>
+      <div className='container xl:text-sm lg:text-1 md:text-0.5 whitespace-nowrap w-full flex justify-center items-center'>
+        <span className="text-gray-600 font-bold mr-4">RESULTADOS:</span>
+        <ul className='inline-flex items-center'>
           {resultado_partidos.slice(indexLo, indexHi).map((item, index) => (
             <li key={index} className='ml-6'>
-             {(index < indexHi - 1) ? (
-                  <span className='text-gray-600 xl:px-4 lg:px-3'>
-                    {item}
-                  </span>
-                ) : (
-                  <span className='text-gray-600 px-1'>
-                    {item}
-                  </span>
-                )
-              }
+              {(index < indexHi - 1) ? (
+                <span className='text-gray-600 xl:px-4 lg:px-3'>
+                  {item}
+                </span>
+              ) : (
+                <span className='text-gray-600 px-1'>
+                  {item}
+                </span>
+              )}
             </li>
           ))}
         </ul>
@@ -88,7 +87,7 @@ function Separator2() {
       <div className='mx-auto relative w-fit flex justify-center items-center bg-white'>
         <img
           className='inline-block object-cover drop-shadow-xl mx-auto cursor-pointer'
-          src='../img/banners/codere_horizontal_estrecho.gif'
+          src='img/banners/codere_horizontal_estrecho.gif'
           alt='banner'
         />
       </div>
@@ -148,7 +147,7 @@ function Separator4() {
       <div className='w-full px-12 flex justify-center items-center my-16 py-4'>
         <img
           className='drop-shadow-xl mx-auto w-11/12 cursor-pointer'
-          src='../img/banners/codere_horizontal_estrecho.gif'
+          src='img/banners/codere_horizontal_estrecho.gif'
         />
       </div>
     </>
